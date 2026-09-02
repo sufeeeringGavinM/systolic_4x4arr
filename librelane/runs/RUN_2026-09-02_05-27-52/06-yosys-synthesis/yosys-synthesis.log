@@ -1,0 +1,2135 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.62 (git sha1 7326bb7d6, g++ 13.3.0-6ubuntu2~24.04 -fPIC -O3)
+
+1. Executing Liberty frontend: /foss/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 428 cell types from liberty file.
+[INFO] Using SDC file '/foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/06-yosys-synthesis/synthesis.abc.sdc' for ABC…
+
+2. Executing Verilog-2005 frontend: /foss/designs/196/systolic_array_4x4_test/rtl/MMU.v
+Parsing SystemVerilog input from `/foss/designs/196/systolic_array_4x4_test/rtl/MMU.v' to AST representation.
+Storing AST representation for module `$abstract\MMU'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /foss/designs/196/systolic_array_4x4_test/rtl/MAC.v
+Parsing SystemVerilog input from `/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v' to AST representation.
+Storing AST representation for module `$abstract\MAC'.
+Successfully finished Verilog frontend.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+5. Executing AST frontend in derive mode using pre-parsed AST for module `\MMU'.
+Generating RTLIL representation for module `\MMU'.
+
+5.1. Analyzing design hierarchy..
+Top module:  \MMU
+
+5.2. Executing AST frontend in derive mode using pre-parsed AST for module `\MAC'.
+Generating RTLIL representation for module `\MAC'.
+
+5.3. Analyzing design hierarchy..
+Top module:  \MMU
+Used module:     \MAC
+
+5.4. Analyzing design hierarchy..
+Top module:  \MMU
+Used module:     \MAC
+Removing unused module `$abstract\MAC'.
+Removing unused module `$abstract\MMU'.
+Removed 2 unused modules.
+Renaming module MMU to MMU.
+
+6. Generating Graphviz representation of design.
+Writing dot description to `/foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/06-yosys-synthesis/hierarchy.dot'.
+Dumping module MMU to page 1.
+
+7. Executing TRIBUF pass.
+
+8. Executing HIERARCHY pass (managing design hierarchy).
+
+8.1. Analyzing design hierarchy..
+Top module:  \MMU
+Used module:     \MAC
+
+8.2. Analyzing design hierarchy..
+Top module:  \MMU
+Used module:     \MAC
+Removed 0 unused modules.
+
+9. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+10. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:30$9 in module MAC.
+Removed a total of 0 dead cases.
+
+11. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 1 assignment to connection.
+
+12. Executing PROC_INIT pass (extract init attributes).
+
+13. Executing PROC_ARST pass (detect async resets in processes).
+
+14. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~1 debug messages>
+
+15. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\MMU.$proc$/foss/designs/196/systolic_array_4x4_test/rtl/MMU.v:210$6'.
+Creating decoders for process `\MAC.$proc$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:30$9'.
+     1/4: $0\acc_out[31:0]
+     2/4: $0\data_out[7:0]
+     3/4: $0\mac_weight[7:0]
+     4/4: $0\wt_path_out[7:0]
+
+16. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+17. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\MMU.\acc_out' using process `\MMU.$proc$/foss/designs/196/systolic_array_4x4_test/rtl/MMU.v:210$6'.
+  created $dff cell `$procdff$23' with positive edge clock.
+Creating register for signal `\MAC.\acc_out' using process `\MAC.$proc$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:30$9'.
+  created $dff cell `$procdff$24' with positive edge clock.
+Creating register for signal `\MAC.\data_out' using process `\MAC.$proc$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:30$9'.
+  created $dff cell `$procdff$25' with positive edge clock.
+Creating register for signal `\MAC.\wt_path_out' using process `\MAC.$proc$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:30$9'.
+  created $dff cell `$procdff$26' with positive edge clock.
+Creating register for signal `\MAC.\mac_weight' using process `\MAC.$proc$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:30$9'.
+  created $dff cell `$procdff$27' with positive edge clock.
+
+18. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+19. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `MMU.$proc$/foss/designs/196/systolic_array_4x4_test/rtl/MMU.v:210$6'.
+Found and cleaned up 1 empty switch in `\MAC.$proc$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:30$9'.
+Removing empty process `MAC.$proc$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:30$9'.
+Cleaned up 1 empty switch.
+
+20. Executing CHECK pass (checking for obvious problems).
+Checking module MMU...
+Checking module MAC...
+Found and reported 0 problems.
+
+21. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+Optimizing module MAC.
+
+22. Executing FLATTEN pass (flatten design).
+Deleting now unused module MAC.
+<suppressed ~16 debug messages>
+
+23. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+<suppressed ~4 debug messages>
+
+24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+Removed 16 unused cells and 172 unused wires.
+<suppressed ~31 debug messages>
+
+25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+26. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 178 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+27. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MMU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $flatten\u_MAC11.$ternary$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$8.
+    dead port 1/2 on $mux $flatten\u_MAC21.$ternary$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$8.
+    dead port 1/2 on $mux $flatten\u_MAC31.$ternary$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$8.
+    dead port 1/2 on $mux $flatten\u_MAC41.$ternary$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$8.
+    dead port 2/2 on $mux $ternary$/foss/designs/196/systolic_array_4x4_test/rtl/MMU.v:40$2.
+    dead port 2/2 on $mux $ternary$/foss/designs/196/systolic_array_4x4_test/rtl/MMU.v:41$3.
+    dead port 2/2 on $mux $ternary$/foss/designs/196/systolic_array_4x4_test/rtl/MMU.v:42$4.
+    dead port 2/2 on $mux $ternary$/foss/designs/196/systolic_array_4x4_test/rtl/MMU.v:43$5.
+Removed 8 multiplexer ports.
+<suppressed ~178 debug messages>
+
+28. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MMU.
+Performed a total of 0 changes.
+
+29. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 170 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+30. Executing OPT_DFF pass (perform DFF optimizations).
+
+31. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+32. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+33. Rerunning OPT passes. (Maybe there is more to do…)
+
+34. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MMU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~138 debug messages>
+
+35. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MMU.
+Performed a total of 0 changes.
+
+36. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 170 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+37. Executing OPT_DFF pass (perform DFF optimizations).
+
+38. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+
+39. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+40. Executing FSM pass (extract and optimize FSM).
+
+40.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+40.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+40.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+40.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+
+40.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+40.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+40.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+40.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+41. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+42. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 170 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+43. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MMU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~138 debug messages>
+
+44. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MMU.
+Performed a total of 0 changes.
+
+45. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 170 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+46. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $flatten\u_MAC44.$procdff$27 ($dff) from module MMU (D = \u_MAC43.wt_path_out, Q = \u_MAC44.mac_weight).
+Adding SRST signal on $flatten\u_MAC44.$procdff$24 ($dff) from module MMU (D = $flatten\u_MAC44.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10_Y, Q = \u_MAC44.acc_out, rval = 0).
+Adding EN signal on $flatten\u_MAC43.$procdff$27 ($dff) from module MMU (D = \u_MAC42.wt_path_out, Q = \u_MAC43.mac_weight).
+Adding EN signal on $flatten\u_MAC43.$procdff$26 ($dff) from module MMU (D = \u_MAC42.wt_path_out, Q = \u_MAC43.wt_path_out).
+Adding SRST signal on $flatten\u_MAC43.$procdff$24 ($dff) from module MMU (D = $flatten\u_MAC43.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10_Y, Q = \u_MAC43.acc_out, rval = 0).
+Adding EN signal on $flatten\u_MAC42.$procdff$27 ($dff) from module MMU (D = \u_MAC41.wt_path_out, Q = \u_MAC42.mac_weight).
+Adding EN signal on $flatten\u_MAC42.$procdff$26 ($dff) from module MMU (D = \u_MAC41.wt_path_out, Q = \u_MAC42.wt_path_out).
+Adding SRST signal on $flatten\u_MAC42.$procdff$24 ($dff) from module MMU (D = $flatten\u_MAC42.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10_Y, Q = \u_MAC42.acc_out, rval = 0).
+Adding EN signal on $flatten\u_MAC41.$procdff$27 ($dff) from module MMU (D = \wt_arr [31:24], Q = \u_MAC41.mac_weight).
+Adding EN signal on $flatten\u_MAC41.$procdff$26 ($dff) from module MMU (D = \wt_arr [31:24], Q = \u_MAC41.wt_path_out).
+Adding SRST signal on $flatten\u_MAC41.$procdff$24 ($dff) from module MMU (D = \u_MAC41.mlt, Q = \u_MAC41.acc_out, rval = 0).
+Adding EN signal on $flatten\u_MAC34.$procdff$27 ($dff) from module MMU (D = \u_MAC33.wt_path_out, Q = \u_MAC34.mac_weight).
+Adding SRST signal on $flatten\u_MAC34.$procdff$25 ($dff) from module MMU (D = \u_MAC24.data_out, Q = \u_MAC34.data_out, rval = 8'00000000).
+Adding SRST signal on $flatten\u_MAC34.$procdff$24 ($dff) from module MMU (D = $flatten\u_MAC34.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10_Y, Q = \u_MAC34.acc_out, rval = 0).
+Adding EN signal on $flatten\u_MAC33.$procdff$27 ($dff) from module MMU (D = \u_MAC32.wt_path_out, Q = \u_MAC33.mac_weight).
+Adding EN signal on $flatten\u_MAC33.$procdff$26 ($dff) from module MMU (D = \u_MAC32.wt_path_out, Q = \u_MAC33.wt_path_out).
+Adding SRST signal on $flatten\u_MAC33.$procdff$25 ($dff) from module MMU (D = \u_MAC23.data_out, Q = \u_MAC33.data_out, rval = 8'00000000).
+Adding SRST signal on $flatten\u_MAC33.$procdff$24 ($dff) from module MMU (D = $flatten\u_MAC33.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10_Y, Q = \u_MAC33.acc_out, rval = 0).
+Adding EN signal on $flatten\u_MAC32.$procdff$27 ($dff) from module MMU (D = \u_MAC31.wt_path_out, Q = \u_MAC32.mac_weight).
+Adding EN signal on $flatten\u_MAC32.$procdff$26 ($dff) from module MMU (D = \u_MAC31.wt_path_out, Q = \u_MAC32.wt_path_out).
+Adding SRST signal on $flatten\u_MAC32.$procdff$25 ($dff) from module MMU (D = \u_MAC22.data_out, Q = \u_MAC32.data_out, rval = 8'00000000).
+Adding SRST signal on $flatten\u_MAC32.$procdff$24 ($dff) from module MMU (D = $flatten\u_MAC32.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10_Y, Q = \u_MAC32.acc_out, rval = 0).
+Adding EN signal on $flatten\u_MAC31.$procdff$27 ($dff) from module MMU (D = \wt_arr [23:16], Q = \u_MAC31.mac_weight).
+Adding EN signal on $flatten\u_MAC31.$procdff$26 ($dff) from module MMU (D = \wt_arr [23:16], Q = \u_MAC31.wt_path_out).
+Adding SRST signal on $flatten\u_MAC31.$procdff$25 ($dff) from module MMU (D = \u_MAC21.data_out, Q = \u_MAC31.data_out, rval = 8'00000000).
+Adding SRST signal on $flatten\u_MAC31.$procdff$24 ($dff) from module MMU (D = \u_MAC31.mlt, Q = \u_MAC31.acc_out, rval = 0).
+Adding EN signal on $flatten\u_MAC24.$procdff$27 ($dff) from module MMU (D = \u_MAC23.wt_path_out, Q = \u_MAC24.mac_weight).
+Adding SRST signal on $flatten\u_MAC24.$procdff$25 ($dff) from module MMU (D = \u_MAC14.data_out, Q = \u_MAC24.data_out, rval = 8'00000000).
+Adding SRST signal on $flatten\u_MAC24.$procdff$24 ($dff) from module MMU (D = $flatten\u_MAC24.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10_Y, Q = \u_MAC24.acc_out, rval = 0).
+Adding EN signal on $flatten\u_MAC23.$procdff$27 ($dff) from module MMU (D = \u_MAC22.wt_path_out, Q = \u_MAC23.mac_weight).
+Adding EN signal on $flatten\u_MAC23.$procdff$26 ($dff) from module MMU (D = \u_MAC22.wt_path_out, Q = \u_MAC23.wt_path_out).
+Adding SRST signal on $flatten\u_MAC23.$procdff$25 ($dff) from module MMU (D = \u_MAC13.data_out, Q = \u_MAC23.data_out, rval = 8'00000000).
+Adding SRST signal on $flatten\u_MAC23.$procdff$24 ($dff) from module MMU (D = $flatten\u_MAC23.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10_Y, Q = \u_MAC23.acc_out, rval = 0).
+Adding EN signal on $flatten\u_MAC22.$procdff$27 ($dff) from module MMU (D = \u_MAC21.wt_path_out, Q = \u_MAC22.mac_weight).
+Adding EN signal on $flatten\u_MAC22.$procdff$26 ($dff) from module MMU (D = \u_MAC21.wt_path_out, Q = \u_MAC22.wt_path_out).
+Adding SRST signal on $flatten\u_MAC22.$procdff$25 ($dff) from module MMU (D = \u_MAC12.data_out, Q = \u_MAC22.data_out, rval = 8'00000000).
+Adding SRST signal on $flatten\u_MAC22.$procdff$24 ($dff) from module MMU (D = $flatten\u_MAC22.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10_Y, Q = \u_MAC22.acc_out, rval = 0).
+Adding EN signal on $flatten\u_MAC21.$procdff$27 ($dff) from module MMU (D = \wt_arr [15:8], Q = \u_MAC21.mac_weight).
+Adding EN signal on $flatten\u_MAC21.$procdff$26 ($dff) from module MMU (D = \wt_arr [15:8], Q = \u_MAC21.wt_path_out).
+Adding SRST signal on $flatten\u_MAC21.$procdff$25 ($dff) from module MMU (D = \u_MAC11.data_out, Q = \u_MAC21.data_out, rval = 8'00000000).
+Adding SRST signal on $flatten\u_MAC21.$procdff$24 ($dff) from module MMU (D = \u_MAC21.mlt, Q = \u_MAC21.acc_out, rval = 0).
+Adding EN signal on $flatten\u_MAC14.$procdff$27 ($dff) from module MMU (D = \u_MAC13.wt_path_out, Q = \u_MAC14.mac_weight).
+Adding SRST signal on $flatten\u_MAC14.$procdff$25 ($dff) from module MMU (D = \mac_data_in0 [31:24], Q = \u_MAC14.data_out, rval = 8'00000000).
+Adding SRST signal on $flatten\u_MAC14.$procdff$24 ($dff) from module MMU (D = $flatten\u_MAC14.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10_Y, Q = \u_MAC14.acc_out, rval = 0).
+Adding EN signal on $flatten\u_MAC13.$procdff$27 ($dff) from module MMU (D = \u_MAC12.wt_path_out, Q = \u_MAC13.mac_weight).
+Adding EN signal on $flatten\u_MAC13.$procdff$26 ($dff) from module MMU (D = \u_MAC12.wt_path_out, Q = \u_MAC13.wt_path_out).
+Adding SRST signal on $flatten\u_MAC13.$procdff$25 ($dff) from module MMU (D = \mac_data_in0 [23:16], Q = \u_MAC13.data_out, rval = 8'00000000).
+Adding SRST signal on $flatten\u_MAC13.$procdff$24 ($dff) from module MMU (D = $flatten\u_MAC13.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10_Y, Q = \u_MAC13.acc_out, rval = 0).
+Adding EN signal on $flatten\u_MAC12.$procdff$27 ($dff) from module MMU (D = \u_MAC11.wt_path_out, Q = \u_MAC12.mac_weight).
+Adding EN signal on $flatten\u_MAC12.$procdff$26 ($dff) from module MMU (D = \u_MAC11.wt_path_out, Q = \u_MAC12.wt_path_out).
+Adding SRST signal on $flatten\u_MAC12.$procdff$25 ($dff) from module MMU (D = \mac_data_in0 [15:8], Q = \u_MAC12.data_out, rval = 8'00000000).
+Adding SRST signal on $flatten\u_MAC12.$procdff$24 ($dff) from module MMU (D = $flatten\u_MAC12.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10_Y, Q = \u_MAC12.acc_out, rval = 0).
+Adding EN signal on $flatten\u_MAC11.$procdff$27 ($dff) from module MMU (D = \wt_arr [7:0], Q = \u_MAC11.mac_weight).
+Adding EN signal on $flatten\u_MAC11.$procdff$26 ($dff) from module MMU (D = \wt_arr [7:0], Q = \u_MAC11.wt_path_out).
+Adding SRST signal on $flatten\u_MAC11.$procdff$25 ($dff) from module MMU (D = \mac_data_in0 [7:0], Q = \u_MAC11.data_out, rval = 8'00000000).
+Adding SRST signal on $flatten\u_MAC11.$procdff$24 ($dff) from module MMU (D = \u_MAC11.mlt, Q = \u_MAC11.acc_out, rval = 0).
+
+47. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+Removed 56 unused cells and 56 unused wires.
+<suppressed ~57 debug messages>
+
+48. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+49. Rerunning OPT passes. (Maybe there is more to do…)
+
+50. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MMU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~26 debug messages>
+
+51. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MMU.
+Performed a total of 0 changes.
+
+52. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 114 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Computing hashes of 102 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+<suppressed ~36 debug messages>
+Removed a total of 12 cells.
+
+53. Executing OPT_DFF pass (perform DFF optimizations).
+
+54. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+
+55. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+56. Rerunning OPT passes. (Maybe there is more to do…)
+
+57. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MMU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~26 debug messages>
+
+58. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MMU.
+Performed a total of 0 changes.
+
+59. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 102 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+60. Executing OPT_DFF pass (perform DFF optimizations).
+
+61. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+
+62. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+63. Executing WREDUCE pass (reducing word size of cells).
+Removed top 16 bits (of 32) from port Y of cell MMU.$flatten\u_MAC11.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+Removed top 16 bits (of 32) from port Y of cell MMU.$flatten\u_MAC12.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+Removed top 16 bits (of 32) from port Y of cell MMU.$flatten\u_MAC13.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+Removed top 16 bits (of 32) from port Y of cell MMU.$flatten\u_MAC14.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+Removed top 16 bits (of 32) from port Y of cell MMU.$flatten\u_MAC21.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+Removed top 16 bits (of 32) from port Y of cell MMU.$flatten\u_MAC22.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+Removed top 16 bits (of 32) from port Y of cell MMU.$flatten\u_MAC23.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+Removed top 16 bits (of 32) from port Y of cell MMU.$flatten\u_MAC24.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+Removed top 16 bits (of 32) from port Y of cell MMU.$flatten\u_MAC31.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+Removed top 16 bits (of 32) from port Y of cell MMU.$flatten\u_MAC32.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+Removed top 16 bits (of 32) from port Y of cell MMU.$flatten\u_MAC33.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+Removed top 16 bits (of 32) from port Y of cell MMU.$flatten\u_MAC34.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+Removed top 16 bits (of 32) from port Y of cell MMU.$flatten\u_MAC41.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+Removed top 16 bits (of 32) from port Y of cell MMU.$flatten\u_MAC42.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+Removed top 16 bits (of 32) from port Y of cell MMU.$flatten\u_MAC43.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+Removed top 16 bits (of 32) from port Y of cell MMU.$flatten\u_MAC44.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+Removed top 16 bits (of 32) from wire MMU.$flatten\u_MAC12.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7_Y.
+Removed top 16 bits (of 32) from wire MMU.$flatten\u_MAC13.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7_Y.
+Removed top 16 bits (of 32) from wire MMU.$flatten\u_MAC14.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7_Y.
+Removed top 16 bits (of 32) from wire MMU.$flatten\u_MAC22.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7_Y.
+Removed top 16 bits (of 32) from wire MMU.$flatten\u_MAC23.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7_Y.
+Removed top 16 bits (of 32) from wire MMU.$flatten\u_MAC24.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7_Y.
+Removed top 16 bits (of 32) from wire MMU.$flatten\u_MAC32.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7_Y.
+Removed top 16 bits (of 32) from wire MMU.$flatten\u_MAC33.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7_Y.
+Removed top 16 bits (of 32) from wire MMU.$flatten\u_MAC34.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7_Y.
+Removed top 16 bits (of 32) from wire MMU.$flatten\u_MAC42.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7_Y.
+Removed top 16 bits (of 32) from wire MMU.$flatten\u_MAC43.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7_Y.
+Removed top 16 bits (of 32) from wire MMU.$flatten\u_MAC44.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7_Y.
+
+64. Executing PEEPOPT pass (run peephole optimizers).
+
+65. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+Removed 0 unused cells and 12 unused wires.
+<suppressed ~1 debug messages>
+
+66. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module MMU:
+  creating $macc model for $flatten\u_MAC11.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+  creating $macc model for $flatten\u_MAC12.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10 ($add).
+  creating $macc model for $flatten\u_MAC12.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+  creating $macc model for $flatten\u_MAC13.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10 ($add).
+  creating $macc model for $flatten\u_MAC13.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+  creating $macc model for $flatten\u_MAC14.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10 ($add).
+  creating $macc model for $flatten\u_MAC14.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+  creating $macc model for $flatten\u_MAC21.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+  creating $macc model for $flatten\u_MAC22.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10 ($add).
+  creating $macc model for $flatten\u_MAC22.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+  creating $macc model for $flatten\u_MAC23.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10 ($add).
+  creating $macc model for $flatten\u_MAC23.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+  creating $macc model for $flatten\u_MAC24.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10 ($add).
+  creating $macc model for $flatten\u_MAC24.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+  creating $macc model for $flatten\u_MAC31.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+  creating $macc model for $flatten\u_MAC32.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10 ($add).
+  creating $macc model for $flatten\u_MAC32.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+  creating $macc model for $flatten\u_MAC33.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10 ($add).
+  creating $macc model for $flatten\u_MAC33.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+  creating $macc model for $flatten\u_MAC34.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10 ($add).
+  creating $macc model for $flatten\u_MAC34.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+  creating $macc model for $flatten\u_MAC41.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+  creating $macc model for $flatten\u_MAC42.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10 ($add).
+  creating $macc model for $flatten\u_MAC42.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+  creating $macc model for $flatten\u_MAC43.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10 ($add).
+  creating $macc model for $flatten\u_MAC43.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+  creating $macc model for $flatten\u_MAC44.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10 ($add).
+  creating $macc model for $flatten\u_MAC44.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7 ($mul).
+  creating $alu model for $macc $flatten\u_MAC44.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10.
+  creating $alu model for $macc $flatten\u_MAC43.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10.
+  creating $alu model for $macc $flatten\u_MAC42.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10.
+  creating $alu model for $macc $flatten\u_MAC34.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10.
+  creating $alu model for $macc $flatten\u_MAC33.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10.
+  creating $alu model for $macc $flatten\u_MAC32.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10.
+  creating $alu model for $macc $flatten\u_MAC24.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10.
+  creating $alu model for $macc $flatten\u_MAC23.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10.
+  creating $alu model for $macc $flatten\u_MAC22.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10.
+  creating $alu model for $macc $flatten\u_MAC14.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10.
+  creating $alu model for $macc $flatten\u_MAC13.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10.
+  creating $alu model for $macc $flatten\u_MAC12.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10.
+  creating $macc cell for $flatten\u_MAC41.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7: $auto$alumacc.cc:382:replace_macc$112
+  creating $macc cell for $flatten\u_MAC31.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7: $auto$alumacc.cc:382:replace_macc$113
+  creating $macc cell for $flatten\u_MAC24.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7: $auto$alumacc.cc:382:replace_macc$114
+  creating $macc cell for $flatten\u_MAC33.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7: $auto$alumacc.cc:382:replace_macc$115
+  creating $macc cell for $flatten\u_MAC23.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7: $auto$alumacc.cc:382:replace_macc$116
+  creating $macc cell for $flatten\u_MAC42.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7: $auto$alumacc.cc:382:replace_macc$117
+  creating $macc cell for $flatten\u_MAC22.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7: $auto$alumacc.cc:382:replace_macc$118
+  creating $macc cell for $flatten\u_MAC34.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7: $auto$alumacc.cc:382:replace_macc$119
+  creating $macc cell for $flatten\u_MAC21.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7: $auto$alumacc.cc:382:replace_macc$120
+  creating $macc cell for $flatten\u_MAC14.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7: $auto$alumacc.cc:382:replace_macc$121
+  creating $macc cell for $flatten\u_MAC43.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7: $auto$alumacc.cc:382:replace_macc$122
+  creating $macc cell for $flatten\u_MAC13.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7: $auto$alumacc.cc:382:replace_macc$123
+  creating $macc cell for $flatten\u_MAC32.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7: $auto$alumacc.cc:382:replace_macc$124
+  creating $macc cell for $flatten\u_MAC12.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7: $auto$alumacc.cc:382:replace_macc$125
+  creating $macc cell for $flatten\u_MAC44.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7: $auto$alumacc.cc:382:replace_macc$126
+  creating $macc cell for $flatten\u_MAC11.$mul$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$7: $auto$alumacc.cc:382:replace_macc$127
+  creating $alu cell for $flatten\u_MAC12.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10: $auto$alumacc.cc:512:replace_alu$128
+  creating $alu cell for $flatten\u_MAC13.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10: $auto$alumacc.cc:512:replace_alu$131
+  creating $alu cell for $flatten\u_MAC14.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10: $auto$alumacc.cc:512:replace_alu$134
+  creating $alu cell for $flatten\u_MAC22.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10: $auto$alumacc.cc:512:replace_alu$137
+  creating $alu cell for $flatten\u_MAC23.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10: $auto$alumacc.cc:512:replace_alu$140
+  creating $alu cell for $flatten\u_MAC24.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10: $auto$alumacc.cc:512:replace_alu$143
+  creating $alu cell for $flatten\u_MAC32.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10: $auto$alumacc.cc:512:replace_alu$146
+  creating $alu cell for $flatten\u_MAC33.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10: $auto$alumacc.cc:512:replace_alu$149
+  creating $alu cell for $flatten\u_MAC34.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10: $auto$alumacc.cc:512:replace_alu$152
+  creating $alu cell for $flatten\u_MAC42.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10: $auto$alumacc.cc:512:replace_alu$155
+  creating $alu cell for $flatten\u_MAC43.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10: $auto$alumacc.cc:512:replace_alu$158
+  creating $alu cell for $flatten\u_MAC44.$add$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:38$10: $auto$alumacc.cc:512:replace_alu$161
+  created 12 $alu and 16 $macc cells.
+
+67. Executing SHARE pass (SAT-based resource sharing).
+
+68. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+69. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 102 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+70. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MMU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~26 debug messages>
+
+71. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MMU.
+Performed a total of 0 changes.
+
+72. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 102 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+73. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 16 on $auto$ff.cc:337:slice$54 ($sdff) from module MMU.
+Setting constant 0-bit at position 17 on $auto$ff.cc:337:slice$54 ($sdff) from module MMU.
+Setting constant 0-bit at position 18 on $auto$ff.cc:337:slice$54 ($sdff) from module MMU.
+Setting constant 0-bit at position 19 on $auto$ff.cc:337:slice$54 ($sdff) from module MMU.
+Setting constant 0-bit at position 20 on $auto$ff.cc:337:slice$54 ($sdff) from module MMU.
+Setting constant 0-bit at position 21 on $auto$ff.cc:337:slice$54 ($sdff) from module MMU.
+Setting constant 0-bit at position 22 on $auto$ff.cc:337:slice$54 ($sdff) from module MMU.
+Setting constant 0-bit at position 23 on $auto$ff.cc:337:slice$54 ($sdff) from module MMU.
+Setting constant 0-bit at position 24 on $auto$ff.cc:337:slice$54 ($sdff) from module MMU.
+Setting constant 0-bit at position 25 on $auto$ff.cc:337:slice$54 ($sdff) from module MMU.
+Setting constant 0-bit at position 26 on $auto$ff.cc:337:slice$54 ($sdff) from module MMU.
+Setting constant 0-bit at position 27 on $auto$ff.cc:337:slice$54 ($sdff) from module MMU.
+Setting constant 0-bit at position 28 on $auto$ff.cc:337:slice$54 ($sdff) from module MMU.
+Setting constant 0-bit at position 29 on $auto$ff.cc:337:slice$54 ($sdff) from module MMU.
+Setting constant 0-bit at position 30 on $auto$ff.cc:337:slice$54 ($sdff) from module MMU.
+Setting constant 0-bit at position 31 on $auto$ff.cc:337:slice$54 ($sdff) from module MMU.
+Setting constant 0-bit at position 16 on $auto$ff.cc:337:slice$69 ($sdff) from module MMU.
+Setting constant 0-bit at position 17 on $auto$ff.cc:337:slice$69 ($sdff) from module MMU.
+Setting constant 0-bit at position 18 on $auto$ff.cc:337:slice$69 ($sdff) from module MMU.
+Setting constant 0-bit at position 19 on $auto$ff.cc:337:slice$69 ($sdff) from module MMU.
+Setting constant 0-bit at position 20 on $auto$ff.cc:337:slice$69 ($sdff) from module MMU.
+Setting constant 0-bit at position 21 on $auto$ff.cc:337:slice$69 ($sdff) from module MMU.
+Setting constant 0-bit at position 22 on $auto$ff.cc:337:slice$69 ($sdff) from module MMU.
+Setting constant 0-bit at position 23 on $auto$ff.cc:337:slice$69 ($sdff) from module MMU.
+Setting constant 0-bit at position 24 on $auto$ff.cc:337:slice$69 ($sdff) from module MMU.
+Setting constant 0-bit at position 25 on $auto$ff.cc:337:slice$69 ($sdff) from module MMU.
+Setting constant 0-bit at position 26 on $auto$ff.cc:337:slice$69 ($sdff) from module MMU.
+Setting constant 0-bit at position 27 on $auto$ff.cc:337:slice$69 ($sdff) from module MMU.
+Setting constant 0-bit at position 28 on $auto$ff.cc:337:slice$69 ($sdff) from module MMU.
+Setting constant 0-bit at position 29 on $auto$ff.cc:337:slice$69 ($sdff) from module MMU.
+Setting constant 0-bit at position 30 on $auto$ff.cc:337:slice$69 ($sdff) from module MMU.
+Setting constant 0-bit at position 31 on $auto$ff.cc:337:slice$69 ($sdff) from module MMU.
+Setting constant 0-bit at position 16 on $auto$ff.cc:337:slice$84 ($sdff) from module MMU.
+Setting constant 0-bit at position 17 on $auto$ff.cc:337:slice$84 ($sdff) from module MMU.
+Setting constant 0-bit at position 18 on $auto$ff.cc:337:slice$84 ($sdff) from module MMU.
+Setting constant 0-bit at position 19 on $auto$ff.cc:337:slice$84 ($sdff) from module MMU.
+Setting constant 0-bit at position 20 on $auto$ff.cc:337:slice$84 ($sdff) from module MMU.
+Setting constant 0-bit at position 21 on $auto$ff.cc:337:slice$84 ($sdff) from module MMU.
+Setting constant 0-bit at position 22 on $auto$ff.cc:337:slice$84 ($sdff) from module MMU.
+Setting constant 0-bit at position 23 on $auto$ff.cc:337:slice$84 ($sdff) from module MMU.
+Setting constant 0-bit at position 24 on $auto$ff.cc:337:slice$84 ($sdff) from module MMU.
+Setting constant 0-bit at position 25 on $auto$ff.cc:337:slice$84 ($sdff) from module MMU.
+Setting constant 0-bit at position 26 on $auto$ff.cc:337:slice$84 ($sdff) from module MMU.
+Setting constant 0-bit at position 27 on $auto$ff.cc:337:slice$84 ($sdff) from module MMU.
+Setting constant 0-bit at position 28 on $auto$ff.cc:337:slice$84 ($sdff) from module MMU.
+Setting constant 0-bit at position 29 on $auto$ff.cc:337:slice$84 ($sdff) from module MMU.
+Setting constant 0-bit at position 30 on $auto$ff.cc:337:slice$84 ($sdff) from module MMU.
+Setting constant 0-bit at position 31 on $auto$ff.cc:337:slice$84 ($sdff) from module MMU.
+Setting constant 0-bit at position 16 on $auto$ff.cc:337:slice$99 ($sdff) from module MMU.
+Setting constant 0-bit at position 17 on $auto$ff.cc:337:slice$99 ($sdff) from module MMU.
+Setting constant 0-bit at position 18 on $auto$ff.cc:337:slice$99 ($sdff) from module MMU.
+Setting constant 0-bit at position 19 on $auto$ff.cc:337:slice$99 ($sdff) from module MMU.
+Setting constant 0-bit at position 20 on $auto$ff.cc:337:slice$99 ($sdff) from module MMU.
+Setting constant 0-bit at position 21 on $auto$ff.cc:337:slice$99 ($sdff) from module MMU.
+Setting constant 0-bit at position 22 on $auto$ff.cc:337:slice$99 ($sdff) from module MMU.
+Setting constant 0-bit at position 23 on $auto$ff.cc:337:slice$99 ($sdff) from module MMU.
+Setting constant 0-bit at position 24 on $auto$ff.cc:337:slice$99 ($sdff) from module MMU.
+Setting constant 0-bit at position 25 on $auto$ff.cc:337:slice$99 ($sdff) from module MMU.
+Setting constant 0-bit at position 26 on $auto$ff.cc:337:slice$99 ($sdff) from module MMU.
+Setting constant 0-bit at position 27 on $auto$ff.cc:337:slice$99 ($sdff) from module MMU.
+Setting constant 0-bit at position 28 on $auto$ff.cc:337:slice$99 ($sdff) from module MMU.
+Setting constant 0-bit at position 29 on $auto$ff.cc:337:slice$99 ($sdff) from module MMU.
+Setting constant 0-bit at position 30 on $auto$ff.cc:337:slice$99 ($sdff) from module MMU.
+Setting constant 0-bit at position 31 on $auto$ff.cc:337:slice$99 ($sdff) from module MMU.
+
+74. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+
+75. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+76. Rerunning OPT passes. (Maybe there is more to do…)
+
+77. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MMU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~26 debug messages>
+
+78. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MMU.
+Performed a total of 0 changes.
+
+79. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 102 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+80. Executing OPT_DFF pass (perform DFF optimizations).
+
+81. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+
+82. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+83. Executing MEMORY pass.
+
+83.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+83.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+83.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+83.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+83.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+83.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+
+83.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+83.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+83.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+
+83.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+84. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+
+85. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+86. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 102 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+87. Executing OPT_DFF pass (perform DFF optimizations).
+
+88. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+
+89. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+90. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+91. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 102 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+92. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MMU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~26 debug messages>
+
+93. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MMU.
+    Consolidated identical input bits for $mux cell $flatten\u_MAC12.$ternary$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$8:
+      Old ports: A={ 16'0000000000000000 $auto$wreduce.cc:514:run$100 [15:0] }, B=0, Y=\u_MAC12.mlt
+      New ports: A=$auto$wreduce.cc:514:run$100 [15:0], B=16'0000000000000000, Y=\u_MAC12.mlt [15:0]
+      New connections: \u_MAC12.mlt [31:16] = 16'0000000000000000
+    Consolidated identical input bits for $mux cell $flatten\u_MAC13.$ternary$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$8:
+      Old ports: A={ 16'0000000000000000 $auto$wreduce.cc:514:run$101 [15:0] }, B=0, Y=\u_MAC13.mlt
+      New ports: A=$auto$wreduce.cc:514:run$101 [15:0], B=16'0000000000000000, Y=\u_MAC13.mlt [15:0]
+      New connections: \u_MAC13.mlt [31:16] = 16'0000000000000000
+    Consolidated identical input bits for $mux cell $flatten\u_MAC14.$ternary$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$8:
+      Old ports: A={ 16'0000000000000000 $auto$wreduce.cc:514:run$102 [15:0] }, B=0, Y=\u_MAC14.mlt
+      New ports: A=$auto$wreduce.cc:514:run$102 [15:0], B=16'0000000000000000, Y=\u_MAC14.mlt [15:0]
+      New connections: \u_MAC14.mlt [31:16] = 16'0000000000000000
+    Consolidated identical input bits for $mux cell $flatten\u_MAC22.$ternary$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$8:
+      Old ports: A={ 16'0000000000000000 $auto$wreduce.cc:514:run$103 [15:0] }, B=0, Y=\u_MAC22.mlt
+      New ports: A=$auto$wreduce.cc:514:run$103 [15:0], B=16'0000000000000000, Y=\u_MAC22.mlt [15:0]
+      New connections: \u_MAC22.mlt [31:16] = 16'0000000000000000
+    Consolidated identical input bits for $mux cell $flatten\u_MAC23.$ternary$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$8:
+      Old ports: A={ 16'0000000000000000 $auto$wreduce.cc:514:run$104 [15:0] }, B=0, Y=\u_MAC23.mlt
+      New ports: A=$auto$wreduce.cc:514:run$104 [15:0], B=16'0000000000000000, Y=\u_MAC23.mlt [15:0]
+      New connections: \u_MAC23.mlt [31:16] = 16'0000000000000000
+    Consolidated identical input bits for $mux cell $flatten\u_MAC24.$ternary$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$8:
+      Old ports: A={ 16'0000000000000000 $auto$wreduce.cc:514:run$105 [15:0] }, B=0, Y=\u_MAC24.mlt
+      New ports: A=$auto$wreduce.cc:514:run$105 [15:0], B=16'0000000000000000, Y=\u_MAC24.mlt [15:0]
+      New connections: \u_MAC24.mlt [31:16] = 16'0000000000000000
+    Consolidated identical input bits for $mux cell $flatten\u_MAC32.$ternary$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$8:
+      Old ports: A={ 16'0000000000000000 $auto$wreduce.cc:514:run$106 [15:0] }, B=0, Y=\u_MAC32.mlt
+      New ports: A=$auto$wreduce.cc:514:run$106 [15:0], B=16'0000000000000000, Y=\u_MAC32.mlt [15:0]
+      New connections: \u_MAC32.mlt [31:16] = 16'0000000000000000
+    Consolidated identical input bits for $mux cell $flatten\u_MAC33.$ternary$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$8:
+      Old ports: A={ 16'0000000000000000 $auto$wreduce.cc:514:run$107 [15:0] }, B=0, Y=\u_MAC33.mlt
+      New ports: A=$auto$wreduce.cc:514:run$107 [15:0], B=16'0000000000000000, Y=\u_MAC33.mlt [15:0]
+      New connections: \u_MAC33.mlt [31:16] = 16'0000000000000000
+    Consolidated identical input bits for $mux cell $flatten\u_MAC34.$ternary$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$8:
+      Old ports: A={ 16'0000000000000000 $auto$wreduce.cc:514:run$108 [15:0] }, B=0, Y=\u_MAC34.mlt
+      New ports: A=$auto$wreduce.cc:514:run$108 [15:0], B=16'0000000000000000, Y=\u_MAC34.mlt [15:0]
+      New connections: \u_MAC34.mlt [31:16] = 16'0000000000000000
+    Consolidated identical input bits for $mux cell $flatten\u_MAC42.$ternary$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$8:
+      Old ports: A={ 16'0000000000000000 $auto$wreduce.cc:514:run$109 [15:0] }, B=0, Y=\u_MAC42.mlt
+      New ports: A=$auto$wreduce.cc:514:run$109 [15:0], B=16'0000000000000000, Y=\u_MAC42.mlt [15:0]
+      New connections: \u_MAC42.mlt [31:16] = 16'0000000000000000
+    Consolidated identical input bits for $mux cell $flatten\u_MAC43.$ternary$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$8:
+      Old ports: A={ 16'0000000000000000 $auto$wreduce.cc:514:run$110 [15:0] }, B=0, Y=\u_MAC43.mlt
+      New ports: A=$auto$wreduce.cc:514:run$110 [15:0], B=16'0000000000000000, Y=\u_MAC43.mlt [15:0]
+      New connections: \u_MAC43.mlt [31:16] = 16'0000000000000000
+    Consolidated identical input bits for $mux cell $flatten\u_MAC44.$ternary$/foss/designs/196/systolic_array_4x4_test/rtl/MAC.v:27$8:
+      Old ports: A={ 16'0000000000000000 $auto$wreduce.cc:514:run$111 [15:0] }, B=0, Y=\u_MAC44.mlt
+      New ports: A=$auto$wreduce.cc:514:run$111 [15:0], B=16'0000000000000000, Y=\u_MAC44.mlt [15:0]
+      New connections: \u_MAC44.mlt [31:16] = 16'0000000000000000
+  Optimizing cells in module \MMU.
+Performed a total of 12 changes.
+
+94. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 102 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+95. Executing OPT_SHARE pass.
+
+96. Executing OPT_DFF pass (perform DFF optimizations).
+
+97. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+
+98. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+<suppressed ~244 debug messages>
+
+99. Rerunning OPT passes. (Maybe there is more to do…)
+
+100. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MMU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~26 debug messages>
+
+101. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MMU.
+Performed a total of 0 changes.
+
+102. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 102 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+103. Executing OPT_SHARE pass.
+
+104. Executing OPT_DFF pass (perform DFF optimizations).
+
+105. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+Removed 0 unused cells and 60 unused wires.
+<suppressed ~1 debug messages>
+
+106. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+107. Rerunning OPT passes. (Maybe there is more to do…)
+
+108. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MMU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~26 debug messages>
+
+109. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MMU.
+Performed a total of 0 changes.
+
+110. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 102 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+111. Executing OPT_SHARE pass.
+
+112. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 17 on $auto$ff.cc:337:slice$51 ($sdff) from module MMU.
+Setting constant 0-bit at position 18 on $auto$ff.cc:337:slice$51 ($sdff) from module MMU.
+Setting constant 0-bit at position 19 on $auto$ff.cc:337:slice$51 ($sdff) from module MMU.
+Setting constant 0-bit at position 20 on $auto$ff.cc:337:slice$51 ($sdff) from module MMU.
+Setting constant 0-bit at position 21 on $auto$ff.cc:337:slice$51 ($sdff) from module MMU.
+Setting constant 0-bit at position 22 on $auto$ff.cc:337:slice$51 ($sdff) from module MMU.
+Setting constant 0-bit at position 23 on $auto$ff.cc:337:slice$51 ($sdff) from module MMU.
+Setting constant 0-bit at position 24 on $auto$ff.cc:337:slice$51 ($sdff) from module MMU.
+Setting constant 0-bit at position 25 on $auto$ff.cc:337:slice$51 ($sdff) from module MMU.
+Setting constant 0-bit at position 26 on $auto$ff.cc:337:slice$51 ($sdff) from module MMU.
+Setting constant 0-bit at position 27 on $auto$ff.cc:337:slice$51 ($sdff) from module MMU.
+Setting constant 0-bit at position 28 on $auto$ff.cc:337:slice$51 ($sdff) from module MMU.
+Setting constant 0-bit at position 29 on $auto$ff.cc:337:slice$51 ($sdff) from module MMU.
+Setting constant 0-bit at position 30 on $auto$ff.cc:337:slice$51 ($sdff) from module MMU.
+Setting constant 0-bit at position 31 on $auto$ff.cc:337:slice$51 ($sdff) from module MMU.
+Setting constant 0-bit at position 17 on $auto$ff.cc:337:slice$65 ($sdff) from module MMU.
+Setting constant 0-bit at position 18 on $auto$ff.cc:337:slice$65 ($sdff) from module MMU.
+Setting constant 0-bit at position 19 on $auto$ff.cc:337:slice$65 ($sdff) from module MMU.
+Setting constant 0-bit at position 20 on $auto$ff.cc:337:slice$65 ($sdff) from module MMU.
+Setting constant 0-bit at position 21 on $auto$ff.cc:337:slice$65 ($sdff) from module MMU.
+Setting constant 0-bit at position 22 on $auto$ff.cc:337:slice$65 ($sdff) from module MMU.
+Setting constant 0-bit at position 23 on $auto$ff.cc:337:slice$65 ($sdff) from module MMU.
+Setting constant 0-bit at position 24 on $auto$ff.cc:337:slice$65 ($sdff) from module MMU.
+Setting constant 0-bit at position 25 on $auto$ff.cc:337:slice$65 ($sdff) from module MMU.
+Setting constant 0-bit at position 26 on $auto$ff.cc:337:slice$65 ($sdff) from module MMU.
+Setting constant 0-bit at position 27 on $auto$ff.cc:337:slice$65 ($sdff) from module MMU.
+Setting constant 0-bit at position 28 on $auto$ff.cc:337:slice$65 ($sdff) from module MMU.
+Setting constant 0-bit at position 29 on $auto$ff.cc:337:slice$65 ($sdff) from module MMU.
+Setting constant 0-bit at position 30 on $auto$ff.cc:337:slice$65 ($sdff) from module MMU.
+Setting constant 0-bit at position 31 on $auto$ff.cc:337:slice$65 ($sdff) from module MMU.
+Setting constant 0-bit at position 17 on $auto$ff.cc:337:slice$80 ($sdff) from module MMU.
+Setting constant 0-bit at position 18 on $auto$ff.cc:337:slice$80 ($sdff) from module MMU.
+Setting constant 0-bit at position 19 on $auto$ff.cc:337:slice$80 ($sdff) from module MMU.
+Setting constant 0-bit at position 20 on $auto$ff.cc:337:slice$80 ($sdff) from module MMU.
+Setting constant 0-bit at position 21 on $auto$ff.cc:337:slice$80 ($sdff) from module MMU.
+Setting constant 0-bit at position 22 on $auto$ff.cc:337:slice$80 ($sdff) from module MMU.
+Setting constant 0-bit at position 23 on $auto$ff.cc:337:slice$80 ($sdff) from module MMU.
+Setting constant 0-bit at position 24 on $auto$ff.cc:337:slice$80 ($sdff) from module MMU.
+Setting constant 0-bit at position 25 on $auto$ff.cc:337:slice$80 ($sdff) from module MMU.
+Setting constant 0-bit at position 26 on $auto$ff.cc:337:slice$80 ($sdff) from module MMU.
+Setting constant 0-bit at position 27 on $auto$ff.cc:337:slice$80 ($sdff) from module MMU.
+Setting constant 0-bit at position 28 on $auto$ff.cc:337:slice$80 ($sdff) from module MMU.
+Setting constant 0-bit at position 29 on $auto$ff.cc:337:slice$80 ($sdff) from module MMU.
+Setting constant 0-bit at position 30 on $auto$ff.cc:337:slice$80 ($sdff) from module MMU.
+Setting constant 0-bit at position 31 on $auto$ff.cc:337:slice$80 ($sdff) from module MMU.
+Setting constant 0-bit at position 17 on $auto$ff.cc:337:slice$95 ($sdff) from module MMU.
+Setting constant 0-bit at position 18 on $auto$ff.cc:337:slice$95 ($sdff) from module MMU.
+Setting constant 0-bit at position 19 on $auto$ff.cc:337:slice$95 ($sdff) from module MMU.
+Setting constant 0-bit at position 20 on $auto$ff.cc:337:slice$95 ($sdff) from module MMU.
+Setting constant 0-bit at position 21 on $auto$ff.cc:337:slice$95 ($sdff) from module MMU.
+Setting constant 0-bit at position 22 on $auto$ff.cc:337:slice$95 ($sdff) from module MMU.
+Setting constant 0-bit at position 23 on $auto$ff.cc:337:slice$95 ($sdff) from module MMU.
+Setting constant 0-bit at position 24 on $auto$ff.cc:337:slice$95 ($sdff) from module MMU.
+Setting constant 0-bit at position 25 on $auto$ff.cc:337:slice$95 ($sdff) from module MMU.
+Setting constant 0-bit at position 26 on $auto$ff.cc:337:slice$95 ($sdff) from module MMU.
+Setting constant 0-bit at position 27 on $auto$ff.cc:337:slice$95 ($sdff) from module MMU.
+Setting constant 0-bit at position 28 on $auto$ff.cc:337:slice$95 ($sdff) from module MMU.
+Setting constant 0-bit at position 29 on $auto$ff.cc:337:slice$95 ($sdff) from module MMU.
+Setting constant 0-bit at position 30 on $auto$ff.cc:337:slice$95 ($sdff) from module MMU.
+Setting constant 0-bit at position 31 on $auto$ff.cc:337:slice$95 ($sdff) from module MMU.
+
+113. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+
+114. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+<suppressed ~228 debug messages>
+
+115. Rerunning OPT passes. (Maybe there is more to do…)
+
+116. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MMU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~26 debug messages>
+
+117. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MMU.
+Performed a total of 0 changes.
+
+118. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 102 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+119. Executing OPT_SHARE pass.
+
+120. Executing OPT_DFF pass (perform DFF optimizations).
+
+121. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+Removed 0 unused cells and 56 unused wires.
+<suppressed ~1 debug messages>
+
+122. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+123. Rerunning OPT passes. (Maybe there is more to do…)
+
+124. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MMU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~26 debug messages>
+
+125. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MMU.
+Performed a total of 0 changes.
+
+126. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 102 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+127. Executing OPT_SHARE pass.
+
+128. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 18 on $auto$ff.cc:337:slice$48 ($sdff) from module MMU.
+Setting constant 0-bit at position 19 on $auto$ff.cc:337:slice$48 ($sdff) from module MMU.
+Setting constant 0-bit at position 20 on $auto$ff.cc:337:slice$48 ($sdff) from module MMU.
+Setting constant 0-bit at position 21 on $auto$ff.cc:337:slice$48 ($sdff) from module MMU.
+Setting constant 0-bit at position 22 on $auto$ff.cc:337:slice$48 ($sdff) from module MMU.
+Setting constant 0-bit at position 23 on $auto$ff.cc:337:slice$48 ($sdff) from module MMU.
+Setting constant 0-bit at position 24 on $auto$ff.cc:337:slice$48 ($sdff) from module MMU.
+Setting constant 0-bit at position 25 on $auto$ff.cc:337:slice$48 ($sdff) from module MMU.
+Setting constant 0-bit at position 26 on $auto$ff.cc:337:slice$48 ($sdff) from module MMU.
+Setting constant 0-bit at position 27 on $auto$ff.cc:337:slice$48 ($sdff) from module MMU.
+Setting constant 0-bit at position 28 on $auto$ff.cc:337:slice$48 ($sdff) from module MMU.
+Setting constant 0-bit at position 29 on $auto$ff.cc:337:slice$48 ($sdff) from module MMU.
+Setting constant 0-bit at position 30 on $auto$ff.cc:337:slice$48 ($sdff) from module MMU.
+Setting constant 0-bit at position 31 on $auto$ff.cc:337:slice$48 ($sdff) from module MMU.
+Setting constant 0-bit at position 18 on $auto$ff.cc:337:slice$61 ($sdff) from module MMU.
+Setting constant 0-bit at position 19 on $auto$ff.cc:337:slice$61 ($sdff) from module MMU.
+Setting constant 0-bit at position 20 on $auto$ff.cc:337:slice$61 ($sdff) from module MMU.
+Setting constant 0-bit at position 21 on $auto$ff.cc:337:slice$61 ($sdff) from module MMU.
+Setting constant 0-bit at position 22 on $auto$ff.cc:337:slice$61 ($sdff) from module MMU.
+Setting constant 0-bit at position 23 on $auto$ff.cc:337:slice$61 ($sdff) from module MMU.
+Setting constant 0-bit at position 24 on $auto$ff.cc:337:slice$61 ($sdff) from module MMU.
+Setting constant 0-bit at position 25 on $auto$ff.cc:337:slice$61 ($sdff) from module MMU.
+Setting constant 0-bit at position 26 on $auto$ff.cc:337:slice$61 ($sdff) from module MMU.
+Setting constant 0-bit at position 27 on $auto$ff.cc:337:slice$61 ($sdff) from module MMU.
+Setting constant 0-bit at position 28 on $auto$ff.cc:337:slice$61 ($sdff) from module MMU.
+Setting constant 0-bit at position 29 on $auto$ff.cc:337:slice$61 ($sdff) from module MMU.
+Setting constant 0-bit at position 30 on $auto$ff.cc:337:slice$61 ($sdff) from module MMU.
+Setting constant 0-bit at position 31 on $auto$ff.cc:337:slice$61 ($sdff) from module MMU.
+Setting constant 0-bit at position 18 on $auto$ff.cc:337:slice$76 ($sdff) from module MMU.
+Setting constant 0-bit at position 19 on $auto$ff.cc:337:slice$76 ($sdff) from module MMU.
+Setting constant 0-bit at position 20 on $auto$ff.cc:337:slice$76 ($sdff) from module MMU.
+Setting constant 0-bit at position 21 on $auto$ff.cc:337:slice$76 ($sdff) from module MMU.
+Setting constant 0-bit at position 22 on $auto$ff.cc:337:slice$76 ($sdff) from module MMU.
+Setting constant 0-bit at position 23 on $auto$ff.cc:337:slice$76 ($sdff) from module MMU.
+Setting constant 0-bit at position 24 on $auto$ff.cc:337:slice$76 ($sdff) from module MMU.
+Setting constant 0-bit at position 25 on $auto$ff.cc:337:slice$76 ($sdff) from module MMU.
+Setting constant 0-bit at position 26 on $auto$ff.cc:337:slice$76 ($sdff) from module MMU.
+Setting constant 0-bit at position 27 on $auto$ff.cc:337:slice$76 ($sdff) from module MMU.
+Setting constant 0-bit at position 28 on $auto$ff.cc:337:slice$76 ($sdff) from module MMU.
+Setting constant 0-bit at position 29 on $auto$ff.cc:337:slice$76 ($sdff) from module MMU.
+Setting constant 0-bit at position 30 on $auto$ff.cc:337:slice$76 ($sdff) from module MMU.
+Setting constant 0-bit at position 31 on $auto$ff.cc:337:slice$76 ($sdff) from module MMU.
+Setting constant 0-bit at position 18 on $auto$ff.cc:337:slice$91 ($sdff) from module MMU.
+Setting constant 0-bit at position 19 on $auto$ff.cc:337:slice$91 ($sdff) from module MMU.
+Setting constant 0-bit at position 20 on $auto$ff.cc:337:slice$91 ($sdff) from module MMU.
+Setting constant 0-bit at position 21 on $auto$ff.cc:337:slice$91 ($sdff) from module MMU.
+Setting constant 0-bit at position 22 on $auto$ff.cc:337:slice$91 ($sdff) from module MMU.
+Setting constant 0-bit at position 23 on $auto$ff.cc:337:slice$91 ($sdff) from module MMU.
+Setting constant 0-bit at position 24 on $auto$ff.cc:337:slice$91 ($sdff) from module MMU.
+Setting constant 0-bit at position 25 on $auto$ff.cc:337:slice$91 ($sdff) from module MMU.
+Setting constant 0-bit at position 26 on $auto$ff.cc:337:slice$91 ($sdff) from module MMU.
+Setting constant 0-bit at position 27 on $auto$ff.cc:337:slice$91 ($sdff) from module MMU.
+Setting constant 0-bit at position 28 on $auto$ff.cc:337:slice$91 ($sdff) from module MMU.
+Setting constant 0-bit at position 29 on $auto$ff.cc:337:slice$91 ($sdff) from module MMU.
+Setting constant 0-bit at position 30 on $auto$ff.cc:337:slice$91 ($sdff) from module MMU.
+Setting constant 0-bit at position 31 on $auto$ff.cc:337:slice$91 ($sdff) from module MMU.
+
+129. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+
+130. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+<suppressed ~212 debug messages>
+
+131. Rerunning OPT passes. (Maybe there is more to do…)
+
+132. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MMU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~26 debug messages>
+
+133. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MMU.
+Performed a total of 0 changes.
+
+134. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 102 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+135. Executing OPT_SHARE pass.
+
+136. Executing OPT_DFF pass (perform DFF optimizations).
+
+137. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+Removed 0 unused cells and 52 unused wires.
+<suppressed ~1 debug messages>
+
+138. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+139. Rerunning OPT passes. (Maybe there is more to do…)
+
+140. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MMU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~26 debug messages>
+
+141. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MMU.
+Performed a total of 0 changes.
+
+142. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 102 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+143. Executing OPT_SHARE pass.
+
+144. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 19 on $auto$ff.cc:337:slice$45 ($sdff) from module MMU.
+Setting constant 0-bit at position 20 on $auto$ff.cc:337:slice$45 ($sdff) from module MMU.
+Setting constant 0-bit at position 21 on $auto$ff.cc:337:slice$45 ($sdff) from module MMU.
+Setting constant 0-bit at position 22 on $auto$ff.cc:337:slice$45 ($sdff) from module MMU.
+Setting constant 0-bit at position 23 on $auto$ff.cc:337:slice$45 ($sdff) from module MMU.
+Setting constant 0-bit at position 24 on $auto$ff.cc:337:slice$45 ($sdff) from module MMU.
+Setting constant 0-bit at position 25 on $auto$ff.cc:337:slice$45 ($sdff) from module MMU.
+Setting constant 0-bit at position 26 on $auto$ff.cc:337:slice$45 ($sdff) from module MMU.
+Setting constant 0-bit at position 27 on $auto$ff.cc:337:slice$45 ($sdff) from module MMU.
+Setting constant 0-bit at position 28 on $auto$ff.cc:337:slice$45 ($sdff) from module MMU.
+Setting constant 0-bit at position 29 on $auto$ff.cc:337:slice$45 ($sdff) from module MMU.
+Setting constant 0-bit at position 30 on $auto$ff.cc:337:slice$45 ($sdff) from module MMU.
+Setting constant 0-bit at position 31 on $auto$ff.cc:337:slice$45 ($sdff) from module MMU.
+Setting constant 0-bit at position 19 on $auto$ff.cc:337:slice$57 ($sdff) from module MMU.
+Setting constant 0-bit at position 20 on $auto$ff.cc:337:slice$57 ($sdff) from module MMU.
+Setting constant 0-bit at position 21 on $auto$ff.cc:337:slice$57 ($sdff) from module MMU.
+Setting constant 0-bit at position 22 on $auto$ff.cc:337:slice$57 ($sdff) from module MMU.
+Setting constant 0-bit at position 23 on $auto$ff.cc:337:slice$57 ($sdff) from module MMU.
+Setting constant 0-bit at position 24 on $auto$ff.cc:337:slice$57 ($sdff) from module MMU.
+Setting constant 0-bit at position 25 on $auto$ff.cc:337:slice$57 ($sdff) from module MMU.
+Setting constant 0-bit at position 26 on $auto$ff.cc:337:slice$57 ($sdff) from module MMU.
+Setting constant 0-bit at position 27 on $auto$ff.cc:337:slice$57 ($sdff) from module MMU.
+Setting constant 0-bit at position 28 on $auto$ff.cc:337:slice$57 ($sdff) from module MMU.
+Setting constant 0-bit at position 29 on $auto$ff.cc:337:slice$57 ($sdff) from module MMU.
+Setting constant 0-bit at position 30 on $auto$ff.cc:337:slice$57 ($sdff) from module MMU.
+Setting constant 0-bit at position 31 on $auto$ff.cc:337:slice$57 ($sdff) from module MMU.
+Setting constant 0-bit at position 19 on $auto$ff.cc:337:slice$72 ($sdff) from module MMU.
+Setting constant 0-bit at position 20 on $auto$ff.cc:337:slice$72 ($sdff) from module MMU.
+Setting constant 0-bit at position 21 on $auto$ff.cc:337:slice$72 ($sdff) from module MMU.
+Setting constant 0-bit at position 22 on $auto$ff.cc:337:slice$72 ($sdff) from module MMU.
+Setting constant 0-bit at position 23 on $auto$ff.cc:337:slice$72 ($sdff) from module MMU.
+Setting constant 0-bit at position 24 on $auto$ff.cc:337:slice$72 ($sdff) from module MMU.
+Setting constant 0-bit at position 25 on $auto$ff.cc:337:slice$72 ($sdff) from module MMU.
+Setting constant 0-bit at position 26 on $auto$ff.cc:337:slice$72 ($sdff) from module MMU.
+Setting constant 0-bit at position 27 on $auto$ff.cc:337:slice$72 ($sdff) from module MMU.
+Setting constant 0-bit at position 28 on $auto$ff.cc:337:slice$72 ($sdff) from module MMU.
+Setting constant 0-bit at position 29 on $auto$ff.cc:337:slice$72 ($sdff) from module MMU.
+Setting constant 0-bit at position 30 on $auto$ff.cc:337:slice$72 ($sdff) from module MMU.
+Setting constant 0-bit at position 31 on $auto$ff.cc:337:slice$72 ($sdff) from module MMU.
+Setting constant 0-bit at position 19 on $auto$ff.cc:337:slice$87 ($sdff) from module MMU.
+Setting constant 0-bit at position 20 on $auto$ff.cc:337:slice$87 ($sdff) from module MMU.
+Setting constant 0-bit at position 21 on $auto$ff.cc:337:slice$87 ($sdff) from module MMU.
+Setting constant 0-bit at position 22 on $auto$ff.cc:337:slice$87 ($sdff) from module MMU.
+Setting constant 0-bit at position 23 on $auto$ff.cc:337:slice$87 ($sdff) from module MMU.
+Setting constant 0-bit at position 24 on $auto$ff.cc:337:slice$87 ($sdff) from module MMU.
+Setting constant 0-bit at position 25 on $auto$ff.cc:337:slice$87 ($sdff) from module MMU.
+Setting constant 0-bit at position 26 on $auto$ff.cc:337:slice$87 ($sdff) from module MMU.
+Setting constant 0-bit at position 27 on $auto$ff.cc:337:slice$87 ($sdff) from module MMU.
+Setting constant 0-bit at position 28 on $auto$ff.cc:337:slice$87 ($sdff) from module MMU.
+Setting constant 0-bit at position 29 on $auto$ff.cc:337:slice$87 ($sdff) from module MMU.
+Setting constant 0-bit at position 30 on $auto$ff.cc:337:slice$87 ($sdff) from module MMU.
+Setting constant 0-bit at position 31 on $auto$ff.cc:337:slice$87 ($sdff) from module MMU.
+
+145. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+
+146. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+147. Rerunning OPT passes. (Maybe there is more to do…)
+
+148. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MMU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~26 debug messages>
+
+149. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MMU.
+Performed a total of 0 changes.
+
+150. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 102 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+151. Executing OPT_SHARE pass.
+
+152. Executing OPT_DFF pass (perform DFF optimizations).
+Setting constant 0-bit at position 19 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 20 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 21 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 22 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 23 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 24 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 25 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 26 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 27 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 28 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 29 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 30 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 31 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 51 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 52 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 53 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 54 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 55 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 56 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 57 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 58 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 59 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 60 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 61 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 62 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 63 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 83 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 84 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 85 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 86 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 87 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 88 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 89 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 90 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 91 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 92 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 93 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 94 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 95 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 115 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 116 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 117 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 118 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 119 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 120 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 121 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 122 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 123 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 124 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 125 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 126 on $procdff$23 ($dff) from module MMU.
+Setting constant 0-bit at position 127 on $procdff$23 ($dff) from module MMU.
+
+153. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+
+154. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+155. Rerunning OPT passes. (Maybe there is more to do…)
+
+156. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MMU..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~26 debug messages>
+
+157. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MMU.
+Performed a total of 0 changes.
+
+158. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 102 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+159. Executing OPT_SHARE pass.
+
+160. Executing OPT_DFF pass (perform DFF optimizations).
+
+161. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+
+162. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+163. Executing TECHMAP pass (map to technology primitives).
+
+163.1. Executing Verilog-2005 frontend: /foss/tools/yosys/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/foss/tools/yosys/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+163.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $dff.
+Using extmapper simplemap for cells of type $sdff.
+Using template $paramod$4e6ee5eb737cf7428f8e246e911ae1dac9ae2979\_90_alu for cells of type $alu.
+Using template $paramod$12350b8c8422a70d10b7db4eaae1202a7148b784\_90_alu for cells of type $alu.
+Using template $paramod$3bb72ad0665cdca279bbc49ed6a39f403f16497f\_90_alu for cells of type $alu.
+Using extmapper maccmap for cells of type $macc_v2.
+  add \mac_data_in0 [7:0] * \u_MAC11.mac_weight (8x8 bits, unsigned)
+  add \u_MAC34.data_out * \u_MAC44.mac_weight (8x8 bits, unsigned)
+  add \mac_data_in0 [15:8] * \u_MAC12.mac_weight (8x8 bits, unsigned)
+  add \u_MAC22.data_out * \u_MAC32.mac_weight (8x8 bits, unsigned)
+  add \mac_data_in0 [23:16] * \u_MAC13.mac_weight (8x8 bits, unsigned)
+  add \u_MAC33.data_out * \u_MAC43.mac_weight (8x8 bits, unsigned)
+  add \mac_data_in0 [31:24] * \u_MAC14.mac_weight (8x8 bits, unsigned)
+  add \u_MAC11.data_out * \u_MAC21.mac_weight (8x8 bits, unsigned)
+  add \u_MAC24.data_out * \u_MAC34.mac_weight (8x8 bits, unsigned)
+  add \u_MAC12.data_out * \u_MAC22.mac_weight (8x8 bits, unsigned)
+  add \u_MAC32.data_out * \u_MAC42.mac_weight (8x8 bits, unsigned)
+  add \u_MAC13.data_out * \u_MAC23.mac_weight (8x8 bits, unsigned)
+  add \u_MAC23.data_out * \u_MAC33.mac_weight (8x8 bits, unsigned)
+  add \u_MAC14.data_out * \u_MAC24.mac_weight (8x8 bits, unsigned)
+  add \u_MAC21.data_out * \u_MAC31.mac_weight (8x8 bits, unsigned)
+  add \u_MAC31.data_out * \u_MAC41.mac_weight (8x8 bits, unsigned)
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $mux.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010000 for cells of type $fa.
+Using template $paramod$6df0329addda9228fcc2546de2aaf14ad26c98e1\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010010 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010010 for cells of type $lcu.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010011 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010011 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010001 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010001 for cells of type $lcu.
+Using extmapper simplemap for cells of type $or.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010000 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~3729 debug messages>
+
+164. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+<suppressed ~7580 debug messages>
+
+165. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 8664 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+166. Executing OPT_DFF pass (perform DFF optimizations).
+
+167. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+Removed 624 unused cells and 2380 unused wires.
+<suppressed ~625 debug messages>
+
+168. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+169. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 8040 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+170. Executing OPT_DFF pass (perform DFF optimizations).
+
+171. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+
+172. Executing ABC pass (technology mapping using ABC).
+
+172.1. Extracting gate netlist of module `\MMU' to `<abc-temp-dir>/input.blif'..
+
+172.1.1. Executed ABC.
+Extracted 7444 gates and 7906 wires to a netlist network with 461 inputs and 312 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Feb 14 2026 00:59:35)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library /tmp/yosys-abc-3zoQy3/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+172.1.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:     1017
+ABC RESULTS:            ANDNOT cells:     2569
+ABC RESULTS:              NAND cells:      401
+ABC RESULTS:               NOR cells:      340
+ABC RESULTS:               NOT cells:      245
+ABC RESULTS:                OR cells:      352
+ABC RESULTS:             ORNOT cells:      461
+ABC RESULTS:              XNOR cells:      581
+ABC RESULTS:               XOR cells:     1723
+ABC RESULTS:        internal signals:     7133
+ABC RESULTS:           input signals:      461
+ABC RESULTS:          output signals:      312
+Removing temp directory.
+Removing global temp directory.
+
+173. Executing OPT pass (performing simple optimizations).
+
+173.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+173.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 8285 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+173.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+173.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+Removed 0 unused cells and 2545 unused wires.
+<suppressed ~1 debug messages>
+
+173.5. Finished fast OPT passes.
+
+174. Executing HIERARCHY pass (managing design hierarchy).
+
+174.1. Analyzing design hierarchy..
+Top module:  \MMU
+
+174.2. Analyzing design hierarchy..
+Top module:  \MMU
+Removed 0 unused modules.
+
+175. Executing CHECK pass (checking for obvious problems).
+Checking module MMU...
+Found and reported 0 problems.
+
+176. Printing statistics.
+
+=== MMU ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     7592 wires
+    11835 wire bits
+      179 public wires
+     3810 public wire bits
+        5 ports
+      194 port bits
+     8285 cells
+     2569   $_ANDNOT_
+     1017   $_AND_
+      128   $_DFFE_PP_
+       76   $_DFF_P_
+      401   $_NAND_
+      340   $_NOR_
+      245   $_NOT_
+      461   $_ORNOT_
+      352   $_OR_
+      376   $_SDFF_PP0_
+      581   $_XNOR_
+     1723   $_XOR_
+       16   $scopeinfo
+
+177. Generating Graphviz representation of design.
+Writing dot description to `/foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/06-yosys-synthesis/primitive_techmap.dot'.
+Dumping module MMU to page 1.
+
+178. Executing OPT pass (performing simple optimizations).
+
+178.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+178.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 8285 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+178.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \MMU..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+178.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \MMU.
+Performed a total of 0 changes.
+
+178.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\MMU'.
+Computing hashes of 8285 cells of `\MMU'.
+Finding duplicate cells in `\MMU'.
+Removed a total of 0 cells.
+
+178.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+178.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+
+178.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module MMU.
+
+178.9. Finished fast OPT passes. (There is nothing left to do.)
+
+179. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+Removed 16 unused cells and 155 unused wires.
+<suppressed ~171 debug messages>
+{
+   "creator": "Yosys 0.62 (git sha1 7326bb7d6, g++ 13.3.0-6ubuntu2~24.04 -fPIC -O3)",
+   "invocation": "stat -json -liberty /foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/tmp/1749939c84bb424486516ccefd48358e.lib ",
+   "modules": {
+      "\\MMU": {
+         "num_wires":         7437,
+         "num_wire_bits":     9115,
+         "num_pub_wires":     24,
+         "num_pub_wire_bits": 1090,
+         "num_ports":         5,
+         "num_port_bits":     194,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         8269,
+         "num_submodules":       0,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 2569,
+            "$_AND_": 1017,
+            "$_DFFE_PP_": 128,
+            "$_DFF_P_": 76,
+            "$_NAND_": 401,
+            "$_NOR_": 340,
+            "$_NOT_": 245,
+            "$_ORNOT_": 461,
+            "$_OR_": 352,
+            "$_SDFF_PP0_": 376,
+            "$_XNOR_": 581,
+            "$_XOR_": 1723
+         }
+      }
+   },
+      "design": {
+         "num_wires":         7437,
+         "num_wire_bits":     9115,
+         "num_pub_wires":     24,
+         "num_pub_wire_bits": 1090,
+         "num_ports":         5,
+         "num_port_bits":     194,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         8269,
+         "num_submodules":       0,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 2569,
+            "$_AND_": 1017,
+            "$_DFFE_PP_": 128,
+            "$_DFF_P_": 76,
+            "$_NAND_": 401,
+            "$_NOR_": 340,
+            "$_NOT_": 245,
+            "$_ORNOT_": 461,
+            "$_OR_": 352,
+            "$_SDFF_PP0_": 376,
+            "$_XNOR_": 581,
+            "$_XOR_": 1723
+         }
+      }
+}
+
+180. Printing statistics.
+
+=== MMU ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     7437 wires
+     9115 wire bits
+       24 public wires
+     1090 public wire bits
+        5 ports
+      194 port bits
+     8269 cells
+     2569   $_ANDNOT_
+     1017   $_AND_
+      128   $_DFFE_PP_
+       76   $_DFF_P_
+      401   $_NAND_
+      340   $_NOR_
+      245   $_NOT_
+      461   $_ORNOT_
+      352   $_OR_
+      376   $_SDFF_PP0_
+      581   $_XNOR_
+     1723   $_XOR_
+
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_DFFE_PP_ is unknown!
+   Area for cell type $_DFF_P_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_SDFF_PP0_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+
+[INFO] Applying tri-state buffer mapping from '/foss/pdks/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v'…
+
+181. Executing TECHMAP pass (map to technology primitives).
+
+181.1. Executing Verilog-2005 frontend: /foss/pdks/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v
+Parsing Verilog input from `/foss/pdks/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v' to AST representation.
+Generating RTLIL representation for module `$_TBUF_'.
+Successfully finished Verilog frontend.
+
+181.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~3 debug messages>
+
+182. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+[INFO] Applying latch mapping from '/foss/pdks/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v'…
+
+183. Executing TECHMAP pass (map to technology primitives).
+
+183.1. Executing Verilog-2005 frontend: /foss/pdks/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v
+Parsing Verilog input from `/foss/pdks/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v' to AST representation.
+Generating RTLIL representation for module `$_DLATCH_P_'.
+Generating RTLIL representation for module `$_DLATCH_N_'.
+Successfully finished Verilog frontend.
+
+183.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+184. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+185. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_2 (noninv, pins=3, area=21.27) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__dfbbn_2 (noninv, pins=6, area=35.03) is a direct match for cell type $_DFFSR_NNN_.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_2 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    unmapped dff cell: $_DFF_NN0_
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_2 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_2 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFE_NN_
+    unmapped dff cell: $_DFFE_NP_
+    unmapped dff cell: $_DFFE_PN_
+    unmapped dff cell: $_DFFE_PP_
+    \sky130_fd_sc_hd__dfbbn_2 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    unmapped dff cell: $_DFFSR_PNN_
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+185.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\MMU':
+  mapped 580 $_DFF_P_ cells to \sky130_fd_sc_hd__dfxtp_2 cells.
+{
+   "creator": "Yosys 0.62 (git sha1 7326bb7d6, g++ 13.3.0-6ubuntu2~24.04 -fPIC -O3)",
+   "invocation": "stat -json -liberty /foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/tmp/1749939c84bb424486516ccefd48358e.lib ",
+   "modules": {
+      "\\MMU": {
+         "num_wires":         7941,
+         "num_wire_bits":     9619,
+         "num_pub_wires":     24,
+         "num_pub_wire_bits": 1090,
+         "num_ports":         5,
+         "num_port_bits":     194,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         8773,
+         "num_submodules":       0,
+         "area":              12336.832000,
+         "sequential_area":    12336.832000,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 2569,
+            "$_AND_": 1017,
+            "$_MUX_": 504,
+            "$_NAND_": 401,
+            "$_NOR_": 340,
+            "$_NOT_": 245,
+            "$_ORNOT_": 461,
+            "$_OR_": 352,
+            "$_XNOR_": 581,
+            "$_XOR_": 1723,
+            "sky130_fd_sc_hd__dfxtp_2": 580
+         }
+      }
+   },
+      "design": {
+         "num_wires":         7941,
+         "num_wire_bits":     9619,
+         "num_pub_wires":     24,
+         "num_pub_wire_bits": 1090,
+         "num_ports":         5,
+         "num_port_bits":     194,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         8773,
+         "num_submodules":       0,
+         "area":              12336.832000,
+         "sequential_area":    12336.832000,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 2569,
+            "$_AND_": 1017,
+            "$_MUX_": 504,
+            "$_NAND_": 401,
+            "$_NOR_": 340,
+            "$_NOT_": 245,
+            "$_ORNOT_": 461,
+            "$_OR_": 352,
+            "$_XNOR_": 581,
+            "$_XOR_": 1723,
+            "sky130_fd_sc_hd__dfxtp_2": 580
+         }
+      }
+}
+
+186. Printing statistics.
+
+=== MMU ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+     7941        - wires
+     9619        - wire bits
+       24        - public wires
+     1090        - public wire bits
+        5        - ports
+      194        - port bits
+     8773 1.23E+04 cells
+     2569        -   $_ANDNOT_
+     1017        -   $_AND_
+      504        -   $_MUX_
+      401        -   $_NAND_
+      340        -   $_NOR_
+      245        -   $_NOT_
+      461        -   $_ORNOT_
+      352        -   $_OR_
+      581        -   $_XNOR_
+     1723        -   $_XOR_
+      580 1.23E+04   sky130_fd_sc_hd__dfxtp_2
+
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+
+   Chip area for module '\MMU': 12336.832000
+     of which used for sequential elements: 12336.832000 (100.00%)
+
+[INFO] Using generated ABC script '/foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/06-yosys-synthesis/AREA_0.abc'…
+
+187. Executing ABC pass (technology mapping using ABC).
+
+187.1. Extracting gate netlist of module `\MMU' to `/tmp/yosys-abc-GKtNXC/input.blif'..
+
+187.1.1. Executed ABC.
+Extracted 8193 gates and 8687 wires to a netlist network with 493 inputs and 504 outputs.
+Running ABC script: /tmp/yosys-abc-GKtNXC/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Feb 14 2026 00:59:35)
+ABC: abc 01> empty
+ABC: abc 01> source /tmp/yosys-abc-GKtNXC/abc.script
+ABC: + read_blif /tmp/yosys-abc-GKtNXC/input.blif 
+ABC: + read_lib -w /foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/tmp/1749939c84bb424486516ccefd48358e.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.09 sec
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "/foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/tmp/1749939c84bb424486516ccefd48358e.lib" has 175 cells (17 skipped: 14 seq; 3 tri-state; 0 no func; 0 dont_use; 0 with 2 outputs; 0 with 3+ outputs).  Time =     0.14 sec
+ABC: Memory =    9.54 MB. Time =     0.14 sec
+ABC: Warning: Detected 2 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + read_constr -v /foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/06-yosys-synthesis/synthesis.abc.sdc 
+ABC: Setting driving cell to be "sky130_fd_sc_hd__inv_2/Y".
+ABC: Setting output load to be 33.442001.
+ABC: + source /foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/06-yosys-synthesis/AREA_0.abc 
+ABC: Error: The network is combinational.
+ABC: Cannot find the default PI driving cell (sky130_fd_sc_hd__inv_2/Y) in the library.
+ABC: WireLoad = "none"  Gates =   6395 (  2.6 %)   Cap = 11.3 ff (  1.9 %)   Area =    60974.73 ( 93.3 %)   Delay =  6788.97 ps  (  1.9 %)               
+ABC: Path  0 --       3 : 0  514 pi                        A =   0.00  Df =   0.0   -0.0 ps  S =   0.0 ps  Cin =  0.0 ff  Cout =1601.1 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --     998 : 1  260 sky130_fd_sc_hd__inv_2    A =   3.75  Df =1779.9 -879.2 ps  S =2589.0 ps  Cin =  4.5 ff  Cout = 577.8 ff  Cmax = 331.4 ff  G =12647  
+ABC: Path  2 --    1127 : 2   12 sky130_fd_sc_hd__and2_2   A =   7.51  Df =2475.4 -856.4 ps  S = 385.0 ps  Cin =  1.5 ff  Cout =  72.6 ff  Cmax = 303.0 ff  G = 4855  
+ABC: Path  3 --    1534 : 2    2 sky130_fd_sc_hd__nand2_2  A =   6.26  Df =2613.4 -833.1 ps  S = 105.8 ps  Cin =  4.4 ff  Cout =  14.1 ff  Cmax = 295.7 ff  G =  305  
+ABC: Path  4 --    1538 : 2    2 sky130_fd_sc_hd__xnor2_2  A =  16.27  Df =2857.8 -894.8 ps  S = 220.7 ps  Cin =  8.5 ff  Cout =  13.2 ff  Cmax = 121.8 ff  G =  148  
+ABC: Path  5 --    1540 : 2    2 sky130_fd_sc_hd__xor2_2   A =  16.27  Df =3097.2 -964.5 ps  S = 183.8 ps  Cin =  8.6 ff  Cout =  10.9 ff  Cmax = 130.0 ff  G =  123  
+ABC: Path  6 --    1541 : 2    2 sky130_fd_sc_hd__xnor2_2  A =  16.27  Df =3295.0 -983.9 ps  S = 184.7 ps  Cin =  8.5 ff  Cout =  10.1 ff  Cmax = 121.8 ff  G =  114  
+ABC: Path  7 --    1543 : 2    2 sky130_fd_sc_hd__xor2_2   A =  16.27  Df =3473.3 -917.5 ps  S = 206.2 ps  Cin =  8.6 ff  Cout =  13.2 ff  Cmax = 130.0 ff  G =  148  
+ABC: Path  8 --    1545 : 2    2 sky130_fd_sc_hd__xnor2_2  A =  16.27  Df =3681.0 -910.4 ps  S = 220.7 ps  Cin =  8.5 ff  Cout =  13.2 ff  Cmax = 121.8 ff  G =  148  
+ABC: Path  9 --    1546 : 2    2 sky130_fd_sc_hd__nor2_2   A =   6.26  Df =3744.1 -788.1 ps  S = 108.0 ps  Cin =  4.4 ff  Cout =   7.2 ff  Cmax = 141.9 ff  G =  153  
+ABC: Path 10 --    1581 : 3    3 sky130_fd_sc_hd__o21a_2   A =   8.76  Df =3951.3 -162.3 ps  S =  60.7 ps  Cin =  2.4 ff  Cout =   8.6 ff  Cmax = 294.8 ff  G =  342  
+ABC: Path 11 --    1641 : 2    1 sky130_fd_sc_hd__nand2b_2 A =   8.76  Df =4113.4  -14.2 ps  S =  42.9 ps  Cin =  3.0 ff  Cout =   2.4 ff  Cmax = 285.7 ff  G =   77  
+ABC: Path 12 --    1642 : 3    2 sky130_fd_sc_hd__a21o_2   A =   8.76  Df =4572.6 -252.1 ps  S =  40.9 ps  Cin =  2.4 ff  Cout =   5.0 ff  Cmax = 309.5 ff  G =  200  
+ABC: Path 13 --    1645 : 5    2 sky130_fd_sc_hd__o2111a_2 A =  12.51  Df =4758.5 -189.2 ps  S =  61.1 ps  Cin =  2.4 ff  Cout =   6.3 ff  Cmax = 299.4 ff  G =  252  
+ABC: Path 14 --    1665 : 3    2 sky130_fd_sc_hd__or3_2    A =   7.51  Df =5017.5 -149.0 ps  S =  81.1 ps  Cin =  1.5 ff  Cout =   4.0 ff  Cmax = 310.4 ff  G =  256  
+ABC: Path 15 --    1669 : 4    3 sky130_fd_sc_hd__a31o_2   A =   8.76  Df =5244.5 -218.9 ps  S =  69.7 ps  Cin =  2.4 ff  Cout =   8.8 ff  Cmax = 271.9 ff  G =  357  
+ABC: Path 16 --    1684 : 4    4 sky130_fd_sc_hd__a211o_2  A =  10.01  Df =5765.1 -174.3 ps  S =  84.0 ps  Cin =  2.4 ff  Cout =  14.8 ff  Cmax = 325.0 ff  G =  592  
+ABC: Path 17 --    1690 : 4    3 sky130_fd_sc_hd__o211ai_2 A =  12.51  Df =5949.7 -261.6 ps  S = 177.0 ps  Cin =  4.4 ff  Cout =   9.0 ff  Cmax = 133.7 ff  G =  196  
+ABC: Path 18 --    1694 : 3    3 sky130_fd_sc_hd__a21oi_2  A =   8.76  Df =6048.5 -160.0 ps  S = 166.4 ps  Cin =  4.6 ff  Cout =  10.9 ff  Cmax = 128.2 ff  G =  226  
+ABC: Path 19 --    1698 : 2    2 sky130_fd_sc_hd__and2_2   A =   7.51  Df =6330.8 -149.5 ps  S = 203.2 ps  Cin =  1.5 ff  Cout =  38.1 ff  Cmax = 303.0 ff  G = 2586  
+ABC: Path 20 --    1699 : 3    1 sky130_fd_sc_hd__nor3_2   A =  10.01  Df =6789.0 -468.0 ps  S = 577.7 ps  Cin =  4.4 ff  Cout =  33.4 ff  Cmax =  92.5 ff  G =  765  
+ABC: Start-point = pi2 (\control).  End-point = po241 ($auto$rtlil.cc:3583:MuxGate$26006).
+ABC: netlist                       : i/o =  493/  504  lat =    0  nd =  6395  edge =  17101  area =60987.73  delay =22.00  lev = 22
+ABC: + write_blif /tmp/yosys-abc-GKtNXC/output.blif 
+ABC:                                                                                
+ABC: YOSYS_ABC_DONE 
+
+187.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__a2111o_2 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__a2111oi_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a211o_2 cells:       75
+ABC RESULTS:   sky130_fd_sc_hd__a211oi_2 cells:       40
+ABC RESULTS:   sky130_fd_sc_hd__a21bo_2 cells:       56
+ABC RESULTS:   sky130_fd_sc_hd__a21boi_2 cells:       16
+ABC RESULTS:   sky130_fd_sc_hd__a21o_2 cells:      275
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_2 cells:      262
+ABC RESULTS:   sky130_fd_sc_hd__a221o_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a22o_2 cells:      129
+ABC RESULTS:   sky130_fd_sc_hd__a22oi_2 cells:      153
+ABC RESULTS:   sky130_fd_sc_hd__a2bb2o_2 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__a311o_2 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__a311oi_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a31o_2 cells:      214
+ABC RESULTS:   sky130_fd_sc_hd__a31oi_2 cells:       34
+ABC RESULTS:   sky130_fd_sc_hd__a32o_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a32oi_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a41o_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__and2_2 cells:      345
+ABC RESULTS:   sky130_fd_sc_hd__and2b_2 cells:      235
+ABC RESULTS:   sky130_fd_sc_hd__and3_2 cells:      295
+ABC RESULTS:   sky130_fd_sc_hd__and3b_2 cells:       51
+ABC RESULTS:   sky130_fd_sc_hd__and4_2 cells:      223
+ABC RESULTS:   sky130_fd_sc_hd__and4b_2 cells:       19
+ABC RESULTS:   sky130_fd_sc_hd__and4bb_2 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__inv_2 cells:      165
+ABC RESULTS:   sky130_fd_sc_hd__mux2_1 cells:      130
+ABC RESULTS:   sky130_fd_sc_hd__nand2_2 cells:      717
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_2 cells:      133
+ABC RESULTS:   sky130_fd_sc_hd__nand3_2 cells:      174
+ABC RESULTS:   sky130_fd_sc_hd__nand3b_2 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__nand4_2 cells:       70
+ABC RESULTS:   sky130_fd_sc_hd__nand4b_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor2_2 cells:      509
+ABC RESULTS:   sky130_fd_sc_hd__nor3_2 cells:       56
+ABC RESULTS:   sky130_fd_sc_hd__nor3b_2 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__nor4_2 cells:       13
+ABC RESULTS:   sky130_fd_sc_hd__o2111a_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o211a_2 cells:       55
+ABC RESULTS:   sky130_fd_sc_hd__o211ai_2 cells:       68
+ABC RESULTS:   sky130_fd_sc_hd__o21a_2 cells:      124
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_2 cells:      152
+ABC RESULTS:   sky130_fd_sc_hd__o21ba_2 cells:       41
+ABC RESULTS:   sky130_fd_sc_hd__o21bai_2 cells:       45
+ABC RESULTS:   sky130_fd_sc_hd__o22a_2 cells:        8
+ABC RESULTS:   sky130_fd_sc_hd__o22ai_2 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__o2bb2a_2 cells:       16
+ABC RESULTS:   sky130_fd_sc_hd__o311a_2 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__o311ai_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o31a_2 cells:       38
+ABC RESULTS:   sky130_fd_sc_hd__o31ai_2 cells:       47
+ABC RESULTS:   sky130_fd_sc_hd__o32a_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o32ai_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o41a_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__or2_2 cells:      249
+ABC RESULTS:   sky130_fd_sc_hd__or3_2 cells:      102
+ABC RESULTS:   sky130_fd_sc_hd__or3b_2 cells:       26
+ABC RESULTS:   sky130_fd_sc_hd__or4_2 cells:       46
+ABC RESULTS:   sky130_fd_sc_hd__or4b_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_2 cells:      654
+ABC RESULTS:   sky130_fd_sc_hd__xor2_2 cells:      260
+ABC RESULTS:        internal signals:     7690
+ABC RESULTS:           input signals:      493
+ABC RESULTS:          output signals:      504
+Removing temp directory.
+Removing global temp directory.
+
+188. Executing SETUNDEF pass (replace undef values with defined constants).
+
+189. Executing HILOMAP pass (mapping to constant drivers).
+
+190. Executing SPLITNETS pass (splitting up multi-bit signals).
+
+191. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \MMU..
+Removed 320 unused cells and 9786 unused wires.
+<suppressed ~713 debug messages>
+
+192. Executing INSBUF pass (insert buffer cells for connected wires).
+
+193. Executing CHECK pass (checking for obvious problems).
+Checking module MMU...
+Found and reported 0 problems.
+{
+   "creator": "Yosys 0.62 (git sha1 7326bb7d6, g++ 13.3.0-6ubuntu2~24.04 -fPIC -O3)",
+   "invocation": "stat -json -liberty /foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/tmp/1749939c84bb424486516ccefd48358e.lib ",
+   "modules": {
+      "\\MMU": {
+         "num_wires":         6904,
+         "num_wire_bits":     7093,
+         "num_pub_wires":     509,
+         "num_pub_wire_bits": 698,
+         "num_ports":         5,
+         "num_port_bits":     194,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         7027,
+         "num_submodules":       0,
+         "area":              73506.748800,
+         "sequential_area":    12336.832000,
+         "num_cells_by_type": {
+            "sky130_fd_sc_hd__a2111o_2": 5,
+            "sky130_fd_sc_hd__a2111oi_2": 2,
+            "sky130_fd_sc_hd__a211o_2": 75,
+            "sky130_fd_sc_hd__a211oi_2": 40,
+            "sky130_fd_sc_hd__a21bo_2": 56,
+            "sky130_fd_sc_hd__a21boi_2": 16,
+            "sky130_fd_sc_hd__a21o_2": 275,
+            "sky130_fd_sc_hd__a21oi_2": 262,
+            "sky130_fd_sc_hd__a221o_2": 1,
+            "sky130_fd_sc_hd__a22o_2": 129,
+            "sky130_fd_sc_hd__a22oi_2": 153,
+            "sky130_fd_sc_hd__a2bb2o_2": 5,
+            "sky130_fd_sc_hd__a311o_2": 10,
+            "sky130_fd_sc_hd__a311oi_2": 2,
+            "sky130_fd_sc_hd__a31o_2": 214,
+            "sky130_fd_sc_hd__a31oi_2": 34,
+            "sky130_fd_sc_hd__a32o_2": 1,
+            "sky130_fd_sc_hd__a32oi_2": 1,
+            "sky130_fd_sc_hd__a41o_2": 2,
+            "sky130_fd_sc_hd__and2_2": 345,
+            "sky130_fd_sc_hd__and2b_2": 235,
+            "sky130_fd_sc_hd__and3_2": 295,
+            "sky130_fd_sc_hd__and3b_2": 51,
+            "sky130_fd_sc_hd__and4_2": 223,
+            "sky130_fd_sc_hd__and4b_2": 19,
+            "sky130_fd_sc_hd__and4bb_2": 7,
+            "sky130_fd_sc_hd__conb_1": 52,
+            "sky130_fd_sc_hd__dfxtp_2": 580,
+            "sky130_fd_sc_hd__inv_2": 165,
+            "sky130_fd_sc_hd__mux2_1": 130,
+            "sky130_fd_sc_hd__nand2_2": 717,
+            "sky130_fd_sc_hd__nand2b_2": 133,
+            "sky130_fd_sc_hd__nand3_2": 174,
+            "sky130_fd_sc_hd__nand3b_2": 10,
+            "sky130_fd_sc_hd__nand4_2": 70,
+            "sky130_fd_sc_hd__nand4b_2": 1,
+            "sky130_fd_sc_hd__nor2_2": 509,
+            "sky130_fd_sc_hd__nor3_2": 56,
+            "sky130_fd_sc_hd__nor3b_2": 6,
+            "sky130_fd_sc_hd__nor4_2": 13,
+            "sky130_fd_sc_hd__o2111a_2": 1,
+            "sky130_fd_sc_hd__o211a_2": 55,
+            "sky130_fd_sc_hd__o211ai_2": 68,
+            "sky130_fd_sc_hd__o21a_2": 124,
+            "sky130_fd_sc_hd__o21ai_2": 152,
+            "sky130_fd_sc_hd__o21ba_2": 41,
+            "sky130_fd_sc_hd__o21bai_2": 45,
+            "sky130_fd_sc_hd__o22a_2": 8,
+            "sky130_fd_sc_hd__o22ai_2": 3,
+            "sky130_fd_sc_hd__o2bb2a_2": 16,
+            "sky130_fd_sc_hd__o311a_2": 9,
+            "sky130_fd_sc_hd__o311ai_2": 1,
+            "sky130_fd_sc_hd__o31a_2": 38,
+            "sky130_fd_sc_hd__o31ai_2": 47,
+            "sky130_fd_sc_hd__o32a_2": 2,
+            "sky130_fd_sc_hd__o32ai_2": 2,
+            "sky130_fd_sc_hd__o41a_2": 2,
+            "sky130_fd_sc_hd__or2_2": 249,
+            "sky130_fd_sc_hd__or3_2": 102,
+            "sky130_fd_sc_hd__or3b_2": 26,
+            "sky130_fd_sc_hd__or4_2": 46,
+            "sky130_fd_sc_hd__or4b_2": 2,
+            "sky130_fd_sc_hd__xnor2_2": 654,
+            "sky130_fd_sc_hd__xor2_2": 260
+         }
+      }
+   },
+      "design": {
+         "num_wires":         6904,
+         "num_wire_bits":     7093,
+         "num_pub_wires":     509,
+         "num_pub_wire_bits": 698,
+         "num_ports":         5,
+         "num_port_bits":     194,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         7027,
+         "num_submodules":       0,
+         "area":              73506.748800,
+         "sequential_area":    12336.832000,
+         "num_cells_by_type": {
+            "sky130_fd_sc_hd__a2111o_2": 5,
+            "sky130_fd_sc_hd__a2111oi_2": 2,
+            "sky130_fd_sc_hd__a211o_2": 75,
+            "sky130_fd_sc_hd__a211oi_2": 40,
+            "sky130_fd_sc_hd__a21bo_2": 56,
+            "sky130_fd_sc_hd__a21boi_2": 16,
+            "sky130_fd_sc_hd__a21o_2": 275,
+            "sky130_fd_sc_hd__a21oi_2": 262,
+            "sky130_fd_sc_hd__a221o_2": 1,
+            "sky130_fd_sc_hd__a22o_2": 129,
+            "sky130_fd_sc_hd__a22oi_2": 153,
+            "sky130_fd_sc_hd__a2bb2o_2": 5,
+            "sky130_fd_sc_hd__a311o_2": 10,
+            "sky130_fd_sc_hd__a311oi_2": 2,
+            "sky130_fd_sc_hd__a31o_2": 214,
+            "sky130_fd_sc_hd__a31oi_2": 34,
+            "sky130_fd_sc_hd__a32o_2": 1,
+            "sky130_fd_sc_hd__a32oi_2": 1,
+            "sky130_fd_sc_hd__a41o_2": 2,
+            "sky130_fd_sc_hd__and2_2": 345,
+            "sky130_fd_sc_hd__and2b_2": 235,
+            "sky130_fd_sc_hd__and3_2": 295,
+            "sky130_fd_sc_hd__and3b_2": 51,
+            "sky130_fd_sc_hd__and4_2": 223,
+            "sky130_fd_sc_hd__and4b_2": 19,
+            "sky130_fd_sc_hd__and4bb_2": 7,
+            "sky130_fd_sc_hd__conb_1": 52,
+            "sky130_fd_sc_hd__dfxtp_2": 580,
+            "sky130_fd_sc_hd__inv_2": 165,
+            "sky130_fd_sc_hd__mux2_1": 130,
+            "sky130_fd_sc_hd__nand2_2": 717,
+            "sky130_fd_sc_hd__nand2b_2": 133,
+            "sky130_fd_sc_hd__nand3_2": 174,
+            "sky130_fd_sc_hd__nand3b_2": 10,
+            "sky130_fd_sc_hd__nand4_2": 70,
+            "sky130_fd_sc_hd__nand4b_2": 1,
+            "sky130_fd_sc_hd__nor2_2": 509,
+            "sky130_fd_sc_hd__nor3_2": 56,
+            "sky130_fd_sc_hd__nor3b_2": 6,
+            "sky130_fd_sc_hd__nor4_2": 13,
+            "sky130_fd_sc_hd__o2111a_2": 1,
+            "sky130_fd_sc_hd__o211a_2": 55,
+            "sky130_fd_sc_hd__o211ai_2": 68,
+            "sky130_fd_sc_hd__o21a_2": 124,
+            "sky130_fd_sc_hd__o21ai_2": 152,
+            "sky130_fd_sc_hd__o21ba_2": 41,
+            "sky130_fd_sc_hd__o21bai_2": 45,
+            "sky130_fd_sc_hd__o22a_2": 8,
+            "sky130_fd_sc_hd__o22ai_2": 3,
+            "sky130_fd_sc_hd__o2bb2a_2": 16,
+            "sky130_fd_sc_hd__o311a_2": 9,
+            "sky130_fd_sc_hd__o311ai_2": 1,
+            "sky130_fd_sc_hd__o31a_2": 38,
+            "sky130_fd_sc_hd__o31ai_2": 47,
+            "sky130_fd_sc_hd__o32a_2": 2,
+            "sky130_fd_sc_hd__o32ai_2": 2,
+            "sky130_fd_sc_hd__o41a_2": 2,
+            "sky130_fd_sc_hd__or2_2": 249,
+            "sky130_fd_sc_hd__or3_2": 102,
+            "sky130_fd_sc_hd__or3b_2": 26,
+            "sky130_fd_sc_hd__or4_2": 46,
+            "sky130_fd_sc_hd__or4b_2": 2,
+            "sky130_fd_sc_hd__xnor2_2": 654,
+            "sky130_fd_sc_hd__xor2_2": 260
+         }
+      }
+}
+
+194. Printing statistics.
+
+=== MMU ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+     6904        - wires
+     7093        - wire bits
+      509        - public wires
+      698        - public wire bits
+        5        - ports
+      194        - port bits
+     7027 7.35E+04 cells
+        5    62.56   sky130_fd_sc_hd__a2111o_2
+        2   30.029   sky130_fd_sc_hd__a2111oi_2
+       75   750.72   sky130_fd_sc_hd__a211o_2
+       40   500.48   sky130_fd_sc_hd__a211oi_2
+       56  560.538   sky130_fd_sc_hd__a21bo_2
+       16  180.173   sky130_fd_sc_hd__a21boi_2
+      275  2408.56   sky130_fd_sc_hd__a21o_2
+      262 2.29E+03   sky130_fd_sc_hd__a21oi_2
+        1   11.261   sky130_fd_sc_hd__a221o_2
+      129 1.29E+03   sky130_fd_sc_hd__a22o_2
+      153 1.91E+03   sky130_fd_sc_hd__a22oi_2
+        5   56.304   sky130_fd_sc_hd__a2bb2o_2
+       10  112.608   sky130_fd_sc_hd__a311o_2
+        2   30.029   sky130_fd_sc_hd__a311oi_2
+      214 1.87E+03   sky130_fd_sc_hd__a31o_2
+       34  425.408   sky130_fd_sc_hd__a31oi_2
+        1   11.261   sky130_fd_sc_hd__a32o_2
+        1   16.266   sky130_fd_sc_hd__a32oi_2
+        2   22.522   sky130_fd_sc_hd__a41o_2
+      345 2.59E+03   sky130_fd_sc_hd__and2_2
+      235 2.06E+03   sky130_fd_sc_hd__and2b_2
+      295 2.21E+03   sky130_fd_sc_hd__and3_2
+       51   510.49   sky130_fd_sc_hd__and3b_2
+      223 2.23E+03   sky130_fd_sc_hd__and4_2
+       19  213.955   sky130_fd_sc_hd__and4b_2
+        7   87.584   sky130_fd_sc_hd__and4bb_2
+       52  195.187   sky130_fd_sc_hd__conb_1
+      580 1.23E+04   sky130_fd_sc_hd__dfxtp_2
+      165  619.344   sky130_fd_sc_hd__inv_2
+      130 1.46E+03   sky130_fd_sc_hd__mux2_1
+      717 4.49E+03   sky130_fd_sc_hd__nand2_2
+      133 1.16E+03   sky130_fd_sc_hd__nand2b_2
+      174  1741.67   sky130_fd_sc_hd__nand3_2
+       10  112.608   sky130_fd_sc_hd__nand3b_2
+       70   875.84   sky130_fd_sc_hd__nand4_2
+        1   15.014   sky130_fd_sc_hd__nand4b_2
+      509 3.18E+03   sky130_fd_sc_hd__nor2_2
+       56  560.538   sky130_fd_sc_hd__nor3_2
+        6   75.072   sky130_fd_sc_hd__nor3b_2
+       13  162.656   sky130_fd_sc_hd__nor4_2
+        1   12.512   sky130_fd_sc_hd__o2111a_2
+       55  550.528   sky130_fd_sc_hd__o211a_2
+       68  850.816   sky130_fd_sc_hd__o211ai_2
+      124 1.09E+03   sky130_fd_sc_hd__o21a_2
+      152 1.33E+03   sky130_fd_sc_hd__o21ai_2
+       41  410.394   sky130_fd_sc_hd__o21ba_2
+       45  506.736   sky130_fd_sc_hd__o21bai_2
+        8   80.077   sky130_fd_sc_hd__o22a_2
+        3   37.536   sky130_fd_sc_hd__o22ai_2
+       16  180.173   sky130_fd_sc_hd__o2bb2a_2
+        9  101.347   sky130_fd_sc_hd__o311a_2
+        1   16.266   sky130_fd_sc_hd__o311ai_2
+       38  380.365   sky130_fd_sc_hd__o31a_2
+       47  588.064   sky130_fd_sc_hd__o31ai_2
+        2   22.522   sky130_fd_sc_hd__o32a_2
+        2   32.531   sky130_fd_sc_hd__o32ai_2
+        2   25.024   sky130_fd_sc_hd__o41a_2
+      249 1.56E+03   sky130_fd_sc_hd__or2_2
+      102  765.734   sky130_fd_sc_hd__or3_2
+       26  227.718   sky130_fd_sc_hd__or3b_2
+       46  402.886   sky130_fd_sc_hd__or4_2
+        2   20.019   sky130_fd_sc_hd__or4b_2
+      654 1.06E+04   sky130_fd_sc_hd__xnor2_2
+      260 4.23E+03   sky130_fd_sc_hd__xor2_2
+
+   Chip area for module '\MMU': 73506.748800
+     of which used for sequential elements: 12336.832000 (16.78%)
+
+195. Executing Verilog backend.
+Dumping module `\MMU'.
+
+196. Executing JSON backend.

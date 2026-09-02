@@ -1,0 +1,1 @@
+openroad -exit -no_splash -metrics /foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/33-openroad-detailedplacement/or_metrics_out.json /usr/local/lib/python3.12/dist-packages/librelane/scripts/openroad/dpl.tcl

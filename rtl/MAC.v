@@ -1,4 +1,4 @@
-`timescale 1ns / 1ns
+`timescale 1ns / 1ps
 
 module MAC #(parameter bit_width=8, acc_width=32)(
     clk,
@@ -40,5 +40,4 @@ module MAC #(parameter bit_width=8, acc_width=32)(
    end
 
 endmodule
-
 

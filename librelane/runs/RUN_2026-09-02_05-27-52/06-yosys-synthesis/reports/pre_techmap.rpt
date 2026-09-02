@@ -1,0 +1,39 @@
+180. Printing statistics.
+
+=== MMU ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     7437 wires
+     9115 wire bits
+       24 public wires
+     1090 public wire bits
+        5 ports
+      194 port bits
+     8269 cells
+     2569   $_ANDNOT_
+     1017   $_AND_
+      128   $_DFFE_PP_
+       76   $_DFF_P_
+      401   $_NAND_
+      340   $_NOR_
+      245   $_NOT_
+      461   $_ORNOT_
+      352   $_OR_
+      376   $_SDFF_PP0_
+      581   $_XNOR_
+     1723   $_XOR_
+
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_DFFE_PP_ is unknown!
+   Area for cell type $_DFF_P_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_SDFF_PP0_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+

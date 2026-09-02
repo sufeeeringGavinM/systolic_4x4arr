@@ -1,0 +1,41 @@
+Reading technology LEF file at '/foss/pdks/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__min.tlef'…
+[INFO ODB-0227] LEF file: /foss/pdks/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__min.tlef, created 14 layers, 25 vias
+Reading cell LEF file at '/foss/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef'…
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file /foss/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef at line 2.
+
+[INFO ODB-0227] LEF file: /foss/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef, created 8 library cells
+Reading cell LEF file at '/foss/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef'…
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file /foss/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef at line 2.
+
+[INFO ODB-0227] LEF file: /foss/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef, created 437 library cells
+[INFO ODB-0127] Reading DEF file: /foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/53-odb-cellfrequencytables/MMU.def
+[INFO ODB-0128] Design: MMU
+[INFO ODB-0130]     Created 196 pins.
+[INFO ODB-0131]     Created 34343 components and 162642 component-terminals.
+[INFO ODB-0132]     Created 2 special nets and 133254 connections.
+[INFO ODB-0133]     Created 7981 nets and 29257 connections.
+[INFO ODB-0134] Finished DEF file: /foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/53-odb-cellfrequencytables/MMU.def
+Using RCX ruleset '/foss/pdks/sky130A/libs.tech/openlane/rules.openrcx.sky130A.min.calibre'…
+[INFO RCX-0431] Defined process_corner CURRENT_CORNER with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner CURRENT_CORNER
+[INFO RCX-0435] Reading extraction model file /foss/pdks/sky130A/libs.tech/openlane/rules.openrcx.sky130A.min.calibre ...
+[INFO RCX-0436] RC segment generation MMU (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 35079 rc segments
+[INFO RCX-0439] Coupling Cap extraction MMU ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 51% of 55447 wires extracted
+[INFO RCX-0442] 100% of 55447 wires extracted
+[INFO RCX-0045] Extract 7981 nets, 43060 rsegs, 43060 caps, 60784 ccs
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+Updating metrics…
+Cell type report:                       Count       Area
+  Fill cell                             22176   75234.66
+  Tap cell                               2059    2576.22
+  Antenna cell                           2114    5290.07
+  Standard cell                          7994   62813.99
+  Total                                 34343  145914.94
+Writing extracted parasitics to '/foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/54-openroad-rcx/min/MMU.min.spef'…
+[INFO RCX-0443] 7981 nets finished

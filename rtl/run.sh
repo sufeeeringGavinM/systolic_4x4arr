@@ -1,0 +1,1 @@
+verilator --binary --timing -Wno-fatal --top-module test_TPU MAC.v MMU.v MMU_test_fixed.v -o sim_out

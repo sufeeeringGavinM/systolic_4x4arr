@@ -1,0 +1,11 @@
+{
+    "DESIGN_NAME": "MMU",
+    "VERILOG_FILES": [
+        "dir::../rtl/MMU.v",
+		"dir::../rtl/MAC.v"
+    ],
+    "CLOCK_PERIOD": 20,
+    "CLOCK_PORT": "clk",
+    "RUN_ANTENNA_REPAIR": true,
+    "RUN_HEURISTIC_DIODE_INSERTION": true
+}

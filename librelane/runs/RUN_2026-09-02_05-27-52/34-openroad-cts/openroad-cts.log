@@ -1,0 +1,131 @@
+Reading timing models for corner nom_tt_025C_1v80…
+Reading timing library for the 'nom_tt_025C_1v80' corner at '/foss/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'…
+Reading timing models for corner nom_ff_n40C_1v95…
+Reading timing library for the 'nom_ff_n40C_1v95' corner at '/foss/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib'…
+Reading timing models for corner nom_ss_100C_1v60…
+Reading timing library for the 'nom_ss_100C_1v60' corner at '/foss/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib'…
+Reading OpenROAD database at '/foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/33-openroad-detailedplacement/MMU.odb'…
+Reading design constraints file at '/usr/local/lib/python3.12/dist-packages/librelane/scripts/base.sdc'…
+[INFO] Using clock clk…
+[INFO] Setting output delay to: 4
+[INFO] Setting input delay to: 4
+[INFO] Setting load to: 0.033442
+[INFO] Setting clock uncertainty to: 0.25
+[INFO] Setting clock transition to: 0.1499999999999999944488848768742172978818416595458984375
+[INFO] Setting timing derate to: 5%
+[INFO] Setting RC values…
+[INFO] Configuring cts characterization…
+[INFO] Performing clock tree synthesis…
+[INFO] Looking for the following net(s): clk
+[INFO] Running Clock Tree Synthesis…
+[INFO CTS-0050] Root buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0051] Sink buffer is sky130_fd_sc_hd__clkbuf_8.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    sky130_fd_sc_hd__clkbuf_2
+                    sky130_fd_sc_hd__clkbuf_4
+                    sky130_fd_sc_hd__clkbuf_8
+[INFO CTS-0049] Characterization buffer is sky130_fd_sc_hd__clkbuf_8.
+[INFO CTS-0007] Net "clk" found for clock "clk".
+[INFO CTS-0010]  Clock net "clk" has 580 sinks.
+[INFO CTS-0008] TritonCTS found 1 clock nets.
+[INFO CTS-0097] Characterization used 3 buffer(s) types.
+[INFO CTS-0200] 0 placement blockages have been identified.
+[INFO CTS-0201] 0 placed hard macros will be treated like blockages.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 580.
+[INFO CTS-0029]  Sinks will be clustered in groups of up to 25 and with maximum cluster diameter of 50.0 um.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 13600  dbu (13 um).
+[INFO CTS-0204] A clustering solution was found from clustering size of 25 and clustering diameter of 50.
+[INFO CTS-0205] Better solution may be possible if either -sink_clustering_size, -sink_clustering_max_diameter, or both options are omitted to enable automatic clustering.
+[INFO CTS-0019]  Total number of sinks after clustering: 84.
+[INFO CTS-0024]  Normalized sink region: [(0.577574, 1.10441), (27.7379, 28.4528)].
+[INFO CTS-0025]     Width:  27.1603.
+[INFO CTS-0026]     Height: 27.3484.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 42
+    Sub-region size: 27.1603 X 13.6742
+[INFO CTS-0034]     Segment length (rounded): 6.
+ Level 2
+    Direction: Horizontal
+    Sinks per sub-region: 21
+    Sub-region size: 13.5801 X 13.6742
+[INFO CTS-0034]     Segment length (rounded): 6.
+ Level 3
+    Direction: Vertical
+    Sinks per sub-region: 11
+    Sub-region size: 13.5801 X 6.8371
+[INFO CTS-0034]     Segment length (rounded): 4.
+[INFO CTS-0032]  Stop criterion found. Max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 84.
+[INFO CTS-0018]     Created 91 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 2.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 3.
+[INFO CTS-0015]     Created 91 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 2:10, 3:6, 4:6, 5:8, 6:10, 7:9, 8:12, 9:7, 10:3, 11:5, 12:5, 13:2, 14:3, 15:1, 16:1, 17:2..
+[INFO CTS-0017]     Max level of the clock tree: 3.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 659
+[INFO CTS-0100]  Leaf buffers 82
+[INFO CTS-0101]  Average sink wire length 640.12 um
+[INFO CTS-0102]  Path depth 2 - 3
+[INFO CTS-0207]  Leaf load cells 79
+[INFO] Repairing long wires on clock nets…
+[INFO RSZ-0058] Using max wire length 6335um.
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+Updating metrics…
+Cell type report:                       Count       Area
+  Fill cell                               280    1051.01
+  Tap cell                               2059    2576.22
+  Clock buffer                             98    1425.12
+  Timing Repair Buffer                    695    3883.72
+  Inverter                                165     619.34
+  Clock inverter                           72     900.86
+  Sequential cell                         580   11612.39
+  Multi-Input combinational cell         6282   43351.58
+  Total                                 10231   65420.24
+Writing OpenROAD database to '/foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/34-openroad-cts/MMU.odb'…
+Writing netlist to '/foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/34-openroad-cts/MMU.nl.v'…
+Writing powered netlist to '/foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/34-openroad-cts/MMU.pnl.v'…
+Writing layout to '/foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/34-openroad-cts/MMU.def'…
+Writing timing constraints to '/foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/34-openroad-cts/MMU.sdc'…
+[INFO] Legalizing…
+Placement Analysis
+---------------------------------
+total displacement       1091.0 u
+average displacement        0.1 u
+max displacement           13.3 u
+original HPWL          138311.3 u
+legalized HPWL         142278.5 u
+delta HPWL                    3 %
+
+[INFO DPL-0020] Mirrored 2610 instances
+[INFO DPL-0021] HPWL before          142278.5 u
+[INFO DPL-0022] HPWL after           138941.5 u
+[INFO DPL-0023] HPWL delta               -2.3 %
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+Updating metrics…
+Cell type report:                       Count       Area
+  Fill cell                               280    1051.01
+  Tap cell                               2059    2576.22
+  Clock buffer                             98    1425.12
+  Timing Repair Buffer                    695    3883.72
+  Inverter                                165     619.34
+  Clock inverter                           72     900.86
+  Sequential cell                         580   11612.39
+  Multi-Input combinational cell         6282   43351.58
+  Total                                 10231   65420.24
+Writing OpenROAD database to '/foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/34-openroad-cts/MMU.odb'…
+Writing netlist to '/foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/34-openroad-cts/MMU.nl.v'…
+Writing powered netlist to '/foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/34-openroad-cts/MMU.pnl.v'…
+Writing layout to '/foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/34-openroad-cts/MMU.def'…
+Writing timing constraints to '/foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/34-openroad-cts/MMU.sdc'…
+%OL_CREATE_REPORT cts.rpt
+[INFO CTS-0003] Total number of Clock Roots: 1.
+[INFO CTS-0004] Total number of Buffers Inserted: 91.
+[INFO CTS-0005] Total number of Clock Subnets: 91.
+[INFO CTS-0006] Total number of Sinks: 580.
+%OL_END_REPORT

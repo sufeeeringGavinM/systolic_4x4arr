@@ -1,0 +1,5 @@
+`verilator_config
+lint_off -rule DECLFILENAME
+lint_off -rule EOFNEWLINE
+lint_off -rule UNDRIVEN -file "/foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/tmp/2aae75f1e3904051970be1fb7f144567.bb.v"
+lint_off -rule UNUSEDSIGNAL -file "/foss/designs/196/systolic_array_4x4_test/librelane/runs/RUN_2026-09-02_05-27-52/tmp/2aae75f1e3904051970be1fb7f144567.bb.v"

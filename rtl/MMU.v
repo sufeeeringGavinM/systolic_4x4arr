@@ -1,4 +1,4 @@
-`timescale 1ns / 1ns
+`timescale 1ns / 1ps
 // Systolic Array top level module. 
 
 module MMU#(parameter depth=4, bit_width=8, acc_width=32, size=4)
