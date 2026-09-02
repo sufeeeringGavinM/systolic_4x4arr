@@ -2,7 +2,7 @@
 #
 # copy_latest_run.sh
 #
-# Run this from inside your librelane project folder (the one that
+# Run this from inside the librelane project folder (the one that
 # contains "runs/"). It finds the most recently created folder in
 # runs/, then copies:
 #   final/sdf/nom_tt_025C_1v80/MMU__nom_tt_025C_1v80.sdf
@@ -32,6 +32,7 @@ fi
 # Note: on Linux, ext4 doesn't reliably expose birth time via stat/find,
 # so we use modification time (-printf '%T@') as the practical proxy for
 # "most recently made". If you're on macOS/BSD, see the alternate line below.
+
 LATEST_RUN=$(find "$RUNS_DIR" -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p\n' \
     | sort -rn \
     | head -n1 \
